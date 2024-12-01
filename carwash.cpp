@@ -38,21 +38,16 @@ int main(){
 
 //Function Definition for car_wash_simulate
 void car_wash_simulate(unsigned int wash_time, double arrival_prob, unsigned int total_time) {
-    //Create 3 queues of type CarInfo
-    Que<CarInfo> carQueue, queue; //tempQueue 
+    //Create 2 queues of type CarInfo
+    Que<CarInfo> carQueue, queue; 
     bool_source get_prob(arrival_prob);
     washer car_wash(wash_time);
 
-    //Create 2 objects if type CarInfo
+    //Create 2 objects of type CarInfo
     CarInfo currentCar, temp;
     
-    //Initializing and declaring 4 counter variables
-    int carsWashed = 0;
-    int carsNotWashed = 0;
-    int currentTime = 0;
-    int waitTime = 0;
-    int average_waiting_time = 0;
-    int totalWaitingTime = 0;
+    //Initializing and declaring 6 counter variables
+    int carsWashed = 0, carsNotWashed = 0, currentTime = 0, waitTime = 0, average_waiting_time = 0, totalWaitingTime = 0;
 
     //Keep looping while the currentTime is less than the total simulation runtime
     while (currentTime < total_time) {
@@ -113,11 +108,13 @@ void car_wash_simulate(unsigned int wash_time, double arrival_prob, unsigned int
         sleep(1);
     }
 
+    //To avoid dividing by zero
     if (carsWashed > 0) {
-        average_waiting_time = totalWaitingTime / carsWashed;//Getting the average waiting time
+        average_waiting_time = totalWaitingTime / carsWashed; //Getting the average waiting time
     } else {
-        average_waiting_time = 0; // Avoid division by zero
+        average_waiting_time = 0; //edge case of no washed cars
     }
+    
     carsNotWashed = carQueue.count(); //Get the remaining number of cars in the car queue to get the total number of cars that were not washed
     queue.statistical_report(average_waiting_time, carsWashed, carsNotWashed); //Display a statiscal report about what happened throughout the simulation
 }// end of while loop
