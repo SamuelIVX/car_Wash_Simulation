@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <string>
 
@@ -15,9 +16,11 @@ public:
         string licensePlate,
         int queuePosition,
         bool interiorCleaningRequired,
-        int isVIP,
+        bool isVIP,
         float water,
         float soap);
+
+    virtual ~Vehicle();
 
     virtual int getArrivalTime() const = 0;
 
@@ -25,13 +28,13 @@ public:
 
     virtual string getCarType() const = 0;
 
-    virtual int getWaterUsage() const;
+    virtual float getWaterUsage() const;
 
-    virtual int getSoapUsage() const;
+    virtual float getSoapUsage() const;
 
     virtual string getLicensePlate() const = 0;
 
-    virtual int getQueuePosition() const;
+    virtual int getQueuePosition() const = 0;
 
     virtual string getTypeOfWash() const = 0;
 
@@ -39,9 +42,9 @@ public:
 
     virtual void display() const = 0;
 
-    virtual int randomGenerator();
+    // virtual int randomGenerator();
 
-    virtual void movePosition();
+    // virtual void movePosition();
 
 private:
     int arrivalTime;
@@ -51,7 +54,7 @@ private:
     string licensePlate;
     int queuePosition;
     bool interiorCleaningRequired;
-    int isVIP;
+    bool isVIP;
     float water;
     float soap;
 };

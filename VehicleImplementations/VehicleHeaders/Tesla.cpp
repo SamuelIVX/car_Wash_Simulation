@@ -1,49 +1,69 @@
-#pragma once
-#include "Vehicle.h"
+#include <iostream>
+#include "../../VehicleHeaders/Tesla.h"
+using namespace std;
 
-class Tesla : public Vehicle
+Tesla::Tesla(
+    int arrivalTime,
+    int washTime,
+    string typeOfWash,
+    string carType,
+    string licensePlate,
+    int queuePosition,
+    bool interiorCleaningRequired,
+    bool isVIP,
+    float water,
+    float soap,
+    bool batteryInspected,
+    bool sensorCleaningRequired,
+    int numberOfSensors)
+    : Vehicle(arrivalTime, washTime, typeOfWash, carType, licensePlate, queuePosition, interiorCleaningRequired, isVIP, water, soap)
 {
-public:
-    Tesla(
-        int arrivalTime,
-        int washTime,
-        string typeOfWash,
-        string carType,
-        string licensePlate,
-        int queuePosition,
-        bool interiorCleaningRequired,
-        int isVIP,
-        float water,
-        float soap,
-        bool batteryInspected,
-        bool sensorCleaningRequired,
-        int numberOfSensors);
+    this->batteryInspected = batteryInspected;
+    this->sensorCleaningRequired = sensorCleaningRequired;
+    this->numberOfSensors = numberOfSensors;
+}
 
-    virtual int getArrivalTime() const;
+Tesla::~Tesla()
+{
+    cout << "Tesla Destructor Invoked.";
+}
 
-    virtual int getWashTime() const;
+int Tesla::getArrivalTime() const
+{
+    return this->arrivalTime;
+}
 
-    virtual string getTypeOfWash() const;
+int Tesla::getWashTime() const
+{
+    return this->washTime;
+}
 
-    virtual int getWaterUsage() const;
+string Tesla::getCarType() const
+{
+    return this->carType;
+}
 
-    virtual int getSoapUsage() const;
+string Tesla::getLicensePlate() const
+{
+    return this->licensePlate;
+}
 
-    virtual string getLicensePlate() const;
+string Tesla::getTypeOfWash() const
+{
+    return this->typeOfWash;
+}
 
-    virtual int getQueuePosition() const;
+int Tesla::getQueuePosition() const
+{
+    return this->queuePosition;
+}
 
-    virtual string getCarType() const;
+void Tesla::display() const
+{
+    Vehicle::display();
+    cout << "Battery Inspected?: " << batteryInspected << endl
+         << "# of Sensors: " << numberOfSensors << endl
+         << "Sensor Cleaning Required?: " << sensorCleaningRequired << endl;
+}
 
-    virtual void display() const;
-
-    virtual void cleanSensors() const;
-
-private:
-    // Electrical
-    bool batteryInspected;
-
-    // Sensors
-    bool sensorCleaningRequired;
-    int numberOfSensors;
-};
+// void Tesla::cleanSensors() const;

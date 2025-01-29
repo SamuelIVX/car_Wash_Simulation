@@ -12,34 +12,39 @@ public:
         string licensePlate,
         int queuePosition,
         bool interiorCleaningRequired,
-        int isVIP,
+        bool isVIP,
         float water,
         float soap,
         bool batteryInspected,
         bool sensorCleaningRequired,
         int numberOfSensors);
 
-    virtual int getArrivalTime() const;
+    virtual ~Tesla();
 
-    virtual int getWashTime() const;
+    virtual int getArrivalTime() const override;
 
-    virtual string getTypeOfWash() const;
+    virtual int getWashTime() const override;
 
-    virtual int getWaterUsage() const;
+    virtual string getCarType() const override;
 
-    virtual int getSoapUsage() const;
+    virtual string getLicensePlate() const override;
 
-    virtual string getLicensePlate() const;
+    virtual string getTypeOfWash() const override;
 
-    virtual int getQueuePosition() const;
+    virtual int getQueuePosition() const override;
 
-    virtual string getCarType() const;
+    virtual void display() const override;
 
-    virtual void display() const;
-
-    virtual void cleanSensors() const;
+    // virtual void cleanSensors() const;
 
 private:
+    int arrivalTime;
+    int washTime;
+    int queuePosition;
+    string carType;
+    string typeOfWash;
+    string licensePlate;
+
     // Electrical
     bool batteryInspected;
 

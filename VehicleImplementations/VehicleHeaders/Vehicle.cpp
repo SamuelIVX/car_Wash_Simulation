@@ -1,57 +1,90 @@
 #include <iostream>
-#include <string>
+#include "../../VehicleHeaders/Vehicle.h"
 
 using namespace std;
 
-class Vehicle // Abstract Base Class
+Vehicle::Vehicle(
+    int arrivalTime,
+    int washTime,
+    string typeOfWash,
+    string carType,
+    string licensePlate,
+    int queuePosition,
+    bool interiorCleaningRequired,
+    bool isVIP,
+    float water,
+    float soap)
 {
-public:
-    // Parameterized Construtor
-    Vehicle(
-        int arrivalTime,
-        int washTime,
-        string typeOfWash,
-        string carType,
-        string licensePlate,
-        int queuePosition,
-        bool interiorCleaningRequired,
-        int isVIP,
-        float water,
-        float soap);
+    this->arrivalTime = arrivalTime;
+    this->washTime = washTime;
+    this->typeOfWash = typeOfWash;
+    this->carType = carType;
+    this->licensePlate = licensePlate;
+    this->queuePosition = queuePosition;
+    this->interiorCleaningRequired = interiorCleaningRequired;
+    this->isVIP = isVIP;
+    this->water = water;
+    this->soap = soap;
+}
 
-    virtual int getArrivalTime() const = 0;
+Vehicle::~Vehicle()
+{
+    cout << "Vehicle Destructor Invoked.";
+}
 
-    virtual int getWashTime() const = 0;
+// int Vehicle::getArrivalTime() const
+// {
+//     return arrivalTime;
+// }
 
-    virtual string getCarType() const = 0;
+// int Vehicle::getWashTime() const
+// {
+//     return washTime;
+// }
 
-    virtual int getWaterUsage() const;
+// string Vehicle::getTypeOfWash() const
+// {
+//     return typeOfWash;
+// }
 
-    virtual int getSoapUsage() const;
+float Vehicle::getWaterUsage() const { return water; }
 
-    virtual string getLicensePlate() const = 0;
+float Vehicle::getSoapUsage() const { return soap; }
 
-    virtual int getQueuePosition() const;
+// string Vehicle::getLicensePlate() const
+// {
+//     return licensePlate;
+// }
 
-    virtual string getTypeOfWash() const = 0;
+// int Vehicle::getQueuePosition() const
+// {
+//     return queuePosition;
+// }
 
-    virtual bool needsInteriorCleaning();
+// string Vehicle::getCarType() const
+// {
+//     return carType;
+// }
 
-    virtual void display() const = 0;
+bool Vehicle::needsInteriorCleaning()
+{
+    return interiorCleaningRequired;
+}
 
-    virtual int randomGenerator();
+void Vehicle::display() const
+{
+    cout << "Arrival Time: " << arrivalTime << endl
+         << "Car Type: " << carType << endl
+         << "License Plate: " << licensePlate << endl
+         << "Queue Position: " << queuePosition << endl
+         << "Wash Time: " << washTime << endl
+         << "Type of Wash: " << typeOfWash << endl
+         << "Interior Cleaning Required?: " << interiorCleaningRequired << endl
+         << "VIP?: " << isVIP << endl
+         << "Water Usage: " << water << endl
+         << "Soap Usage: " << soap << endl;
+}
 
-    virtual void movePosition();
+// int Vehicle::randomGenerator();
 
-private:
-    int arrivalTime;
-    int washTime;
-    string typeOfWash;
-    string carType;
-    string licensePlate;
-    int queuePosition;
-    bool interiorCleaningRequired;
-    int isVIP;
-    float water;
-    float soap;
-};
+// void Vehicle::movePosition();
