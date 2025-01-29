@@ -1,6 +1,6 @@
 #include <stdlib.h>
-#include "VehicleHeaders/Tesla.h"
-#include "VehicleHeaders/Vehicle.h"
+#include "Headers/Tesla.h"
+#include "Headers/Vehicle.h"
 #include <string>
 
 using namespace std;
@@ -28,4 +28,4 @@ int main()
     return 0;
 }
 
-// g++ -o carwash test.cpp VehicleImplementations/VehicleHeaders/Vehicle.cpp VehicleImplementations/VehicleHeaders/Tesla.cpp -std=c++17
+// g++ -o carwash test.cpp Implementations/Vehicle.cpp Implementations/Tesla.cpp -std=c++17
