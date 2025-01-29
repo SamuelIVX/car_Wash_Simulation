@@ -23,47 +23,26 @@ Tesla::Tesla(
     this->numberOfSensors = numberOfSensors;
 }
 
-Tesla::~Tesla()
-{
-    cout << "Tesla Destructor Invoked.";
-}
+Tesla::~Tesla() { cout << "Tesla Destructor Invoked."; }
 
-int Tesla::getArrivalTime() const
-{
-    return this->arrivalTime;
-}
+int Tesla::getArrivalTime() const { return this->arrivalTime; }
 
-int Tesla::getWashTime() const
-{
-    return this->washTime;
-}
+int Tesla::getWashTime() const { return this->washTime; }
 
-string Tesla::getCarType() const
-{
-    return this->carType;
-}
+string Tesla::getCarType() const { return this->carType; }
 
-string Tesla::getLicensePlate() const
-{
-    return this->licensePlate;
-}
+string Tesla::getLicensePlate() const { return this->licensePlate; }
 
-string Tesla::getTypeOfWash() const
-{
-    return this->typeOfWash;
-}
+string Tesla::getTypeOfWash() const { return this->typeOfWash; }
 
-int Tesla::getQueuePosition() const
-{
-    return this->queuePosition;
-}
+int Tesla::getQueuePosition() const { return this->queuePosition; }
 
 void Tesla::display() const
 {
     Vehicle::display();
-    cout << "Battery Inspected?: " << batteryInspected << endl
-         << "# of Sensors: " << numberOfSensors << endl
-         << "Sensor Cleaning Required?: " << sensorCleaningRequired << endl;
+    cout << " | Battery Inspected?: " << batteryInspected
+         << " | # of Sensors: " << numberOfSensors
+         << " | Sensor Cleaning Required?: " << sensorCleaningRequired << endl;
 }
 
 // void Tesla::cleanSensors() const;

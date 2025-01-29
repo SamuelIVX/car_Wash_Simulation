@@ -32,57 +32,24 @@ Vehicle::~Vehicle()
     cout << "Vehicle Destructor Invoked.";
 }
 
-// int Vehicle::getArrivalTime() const
-// {
-//     return arrivalTime;
-// }
-
-// int Vehicle::getWashTime() const
-// {
-//     return washTime;
-// }
-
-// string Vehicle::getTypeOfWash() const
-// {
-//     return typeOfWash;
-// }
-
 float Vehicle::getWaterUsage() const { return water; }
 
 float Vehicle::getSoapUsage() const { return soap; }
 
-// string Vehicle::getLicensePlate() const
-// {
-//     return licensePlate;
-// }
-
-// int Vehicle::getQueuePosition() const
-// {
-//     return queuePosition;
-// }
-
-// string Vehicle::getCarType() const
-// {
-//     return carType;
-// }
-
-bool Vehicle::needsInteriorCleaning()
-{
-    return interiorCleaningRequired;
-}
+bool Vehicle::needsInteriorCleaning() { return interiorCleaningRequired; }
 
 void Vehicle::display() const
 {
-    cout << "Arrival Time: " << arrivalTime << endl
-         << "Car Type: " << carType << endl
-         << "License Plate: " << licensePlate << endl
-         << "Queue Position: " << queuePosition << endl
-         << "Wash Time: " << washTime << endl
-         << "Type of Wash: " << typeOfWash << endl
-         << "Interior Cleaning Required?: " << interiorCleaningRequired << endl
-         << "VIP?: " << isVIP << endl
-         << "Water Usage: " << water << endl
-         << "Soap Usage: " << soap << endl;
+    cout << " | Arrival Time: " << arrivalTime
+         << " | Car Type: " << carType
+         << " | License Plate: " << licensePlate
+         << " | Queue Position: " << queuePosition << endl
+         << " | Wash Time: " << washTime
+         << " | Type of Wash: " << typeOfWash
+         << " | Interior Cleaning Required?: " << interiorCleaningRequired
+         << " | VIP?: " << isVIP << endl
+         << " | Water Usage: " << water
+         << " | Soap Usage: " << soap;
 }
 
 // int Vehicle::randomGenerator();

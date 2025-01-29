@@ -16,8 +16,7 @@ int main()
 
     for (int i = 0; i < 4; i++)
     {
-        cout << "car: " << i << endl
-             << endl;
+        cout << "car: " << i << endl;
         cars[i]->display();
     }
     for (int i = 0; i < 4; i++)
