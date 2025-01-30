@@ -20,12 +20,12 @@ void Vehicle::display() const
          << " | Car Type: " << carType
          << " | License Plate: " << licensePlate
          << " | Queue Position: " << queuePosition << endl
-         << " | Wash Time: " << washTime
+         << " | Wash Time: " << washTime << " min"
          << " | Type of Wash: " << typeOfWash
          << " | Interior Cleaning Required?: " << interiorCleaningRequired
          << " | VIP?: " << isVIP << endl
-         << " | Water Usage: " << water
-         << " | Soap Usage: " << soap;
+         << " | Water Usage: " << water << " gL"
+         << " | Soap Usage: " << soap << " gL";
 }
 
 string Vehicle::licenseGenerator()
@@ -41,7 +41,7 @@ string Vehicle::licenseGenerator()
 
 void Vehicle::propertyGenerator()
 {
-    int randomValue = rand() % 3;
+    int randomValue = rand() % 2;
     string washTypes[] = {"Regular", "Premium", "Luxury"};
     washTime = rand() % 10 + 1;
     typeOfWash = washTypes[randomValue];
