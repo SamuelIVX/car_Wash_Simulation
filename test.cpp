@@ -3,6 +3,7 @@
 #include "Headers/Tesla.h"
 #include "Headers/Volkswagon.h"
 #include "Headers/Toyota.h"
+#include "Headers/Nissan.h"
 #include <string>
 #include <ctime>
 
@@ -16,7 +17,7 @@ int main()
     cars[0] = new Tesla();
     cars[1] = new Volkswagon();
     cars[2] = new Toyota();
-    cars[3] = new Volkswagon();
+    cars[3] = new Nissan();
 
     for (int i = 0; i < 4; i++)
     {
