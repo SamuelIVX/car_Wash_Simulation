@@ -4,21 +4,10 @@
 
 using namespace std;
 
-class Vehicle // Abstract Base Class
+class Vehicle
 {
 public:
-    // Parameterized Construtor
-    Vehicle(
-        int arrivalTime,
-        int washTime,
-        string typeOfWash,
-        string carType,
-        string licensePlate,
-        int queuePosition,
-        bool interiorCleaningRequired,
-        bool isVIP,
-        float water,
-        float soap);
+    Vehicle();
 
     virtual ~Vehicle();
 
@@ -26,11 +15,9 @@ public:
 
     virtual int getWashTime() const = 0;
 
+    virtual void setCarType(string type) = 0;
+
     virtual string getCarType() const = 0;
-
-    virtual float getWaterUsage() const;
-
-    virtual float getSoapUsage() const;
 
     virtual string getLicensePlate() const = 0;
 
@@ -38,15 +25,21 @@ public:
 
     virtual string getTypeOfWash() const = 0;
 
-    virtual bool needsInteriorCleaning();
-
     virtual void display() const = 0;
 
-    // virtual int randomGenerator();
+    virtual float getWaterUsage() const;
+
+    virtual float getSoapUsage() const;
+
+    virtual bool needsInteriorCleaning();
+
+    virtual void propertyGenerator();
+
+    virtual string licenseGenerator();
 
     // virtual void movePosition();
 
-private:
+protected:
     int arrivalTime;
     int washTime;
     string typeOfWash;

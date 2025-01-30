@@ -2,47 +2,34 @@
 #include "../Headers/Tesla.h"
 using namespace std;
 
-Tesla::Tesla(
-    int arrivalTime,
-    int washTime,
-    string typeOfWash,
-    string carType,
-    string licensePlate,
-    int queuePosition,
-    bool interiorCleaningRequired,
-    bool isVIP,
-    float water,
-    float soap,
-    bool batteryInspected,
-    bool sensorCleaningRequired,
-    int numberOfSensors)
-    : Vehicle(arrivalTime, washTime, typeOfWash, carType, licensePlate, queuePosition, interiorCleaningRequired, isVIP, water, soap)
+Tesla::Tesla()
 {
-    this->batteryInspected = batteryInspected;
-    this->sensorCleaningRequired = sensorCleaningRequired;
-    this->numberOfSensors = numberOfSensors;
+    setCarType("Tesla");
+    batteryInspected = rand() % 2;
+    numberOfSensors = rand() % 12 + 1;
+    sensorCleaningRequired = rand() % 2;
 }
 
-Tesla::~Tesla() { cout << "Tesla Destructor Invoked."; }
+Tesla::~Tesla() {}
 
-int Tesla::getArrivalTime() const { return this->arrivalTime; }
+int Tesla::getArrivalTime() const { return arrivalTime; }
 
-int Tesla::getWashTime() const { return this->washTime; }
+int Tesla::getWashTime() const { return washTime; }
 
-string Tesla::getCarType() const { return this->carType; }
+void Tesla::setCarType(string type) { carType = type; }
 
-string Tesla::getLicensePlate() const { return this->licensePlate; }
+string Tesla::getCarType() const { return carType; }
 
-string Tesla::getTypeOfWash() const { return this->typeOfWash; }
+string Tesla::getLicensePlate() const { return licensePlate; }
 
-int Tesla::getQueuePosition() const { return this->queuePosition; }
+string Tesla::getTypeOfWash() const { return typeOfWash; }
+
+int Tesla::getQueuePosition() const { return queuePosition; }
 
 void Tesla::display() const
 {
     Vehicle::display();
-    cout << " | Battery Inspected?: " << batteryInspected
+    cout << " | Battery Inspected?: " << (batteryInspected ? "Yes" : "No")
          << " | # of Sensors: " << numberOfSensors
-         << " | Sensor Cleaning Required?: " << sensorCleaningRequired << endl;
+         << " | Sensor Cleaning Required?: " << (sensorCleaningRequired ? "Yes" : "No") << endl;
 }
-
-// void Tesla::cleanSensors() const;

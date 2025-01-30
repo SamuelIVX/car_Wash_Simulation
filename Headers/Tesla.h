@@ -4,20 +4,7 @@
 class Tesla : public Vehicle
 {
 public:
-    Tesla(
-        int arrivalTime,
-        int washTime,
-        string typeOfWash,
-        string carType,
-        string licensePlate,
-        int queuePosition,
-        bool interiorCleaningRequired,
-        bool isVIP,
-        float water,
-        float soap,
-        bool batteryInspected,
-        bool sensorCleaningRequired,
-        int numberOfSensors);
+    Tesla();
 
     virtual ~Tesla();
 
@@ -33,18 +20,13 @@ public:
 
     virtual int getQueuePosition() const override;
 
+    virtual void setCarType(string type) override;
+
     virtual void display() const override;
 
     // virtual void cleanSensors() const;
 
 private:
-    int arrivalTime;
-    int washTime;
-    int queuePosition;
-    string carType;
-    string typeOfWash;
-    string licensePlate;
-
     // Electrical
     bool batteryInspected;
 
