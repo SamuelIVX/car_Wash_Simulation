@@ -37,8 +37,6 @@ public:
 
     virtual string licenseGenerator();
 
-    // virtual void movePosition();
-
 protected:
     int arrivalTime;
     int washTime;

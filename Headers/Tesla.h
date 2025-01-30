@@ -24,13 +24,8 @@ public:
 
     virtual void display() const override;
 
-    // virtual void cleanSensors() const;
-
 private:
-    // Electrical
     bool batteryInspected;
-
-    // Sensors
     bool sensorCleaningRequired;
     int numberOfSensors;
 };

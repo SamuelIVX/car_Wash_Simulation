@@ -1,6 +1,7 @@
 #include <stdlib.h>
-#include "Headers/Tesla.h"
 #include "Headers/Vehicle.h"
+#include "Headers/Tesla.h"
+#include "Headers/Volkswagon.h"
 #include <string>
 #include <ctime>
 
@@ -12,9 +13,9 @@ int main()
 
     Vehicle *cars[10];
     cars[0] = new Tesla();
-    cars[1] = new Tesla();
+    cars[1] = new Volkswagon();
     cars[2] = new Tesla();
-    cars[3] = new Tesla();
+    cars[3] = new Volkswagon();
 
     for (int i = 0; i < 4; i++)
     {
@@ -29,4 +30,4 @@ int main()
     return 0;
 }
 
-// g++ -o carwash test.cpp Implementations/Vehicle.cpp Implementations/Tesla.cpp -std=c++17
+// g++ -o carwash test.cpp Implementations/Vehicle.cpp Implementations/Tesla.cpp Implementations/Volkswagon.cpp -std=c++17

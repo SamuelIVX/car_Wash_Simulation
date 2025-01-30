@@ -6,30 +6,6 @@ using namespace std;
 
 Vehicle::Vehicle() { propertyGenerator(); }
 
-// Vehicle::Vehicle(
-//     int arrivalTime,
-//     int washTime,
-//     string typeOfWash,
-//     string carType,
-//     string licensePlate,
-//     int queuePosition,
-//     bool interiorCleaningRequired,
-//     bool isVIP,
-//     float water,
-//     float soap)
-// {
-//     this->arrivalTime = arrivalTime;
-//     this->washTime = washTime;
-//     this->typeOfWash = typeOfWash;
-//     this->carType = carType;
-//     this->licensePlate = licensePlate;
-//     this->queuePosition = queuePosition;
-//     this->interiorCleaningRequired = interiorCleaningRequired;
-//     this->isVIP = isVIP;
-//     this->water = water;
-//     this->soap = soap;
-// }
-
 Vehicle::~Vehicle() {}
 
 float Vehicle::getWaterUsage() const { return water; }
@@ -67,7 +43,6 @@ void Vehicle::propertyGenerator()
 {
     int randomValue = rand() % 3;
     string washTypes[] = {"Regular", "Premium", "Luxury"};
-
     washTime = rand() % 10 + 1;
     typeOfWash = washTypes[randomValue];
     licensePlate = licenseGenerator();
