@@ -20,12 +20,12 @@ void Vehicle::display() const
          << " | Car Type: " << carType
          << " | License Plate: " << licensePlate
          << " | Queue Position: " << queuePosition << endl
-         << " | Wash Time: " << washTime << " min"
+         << " | Wash Time: " << washTime << "min"
          << " | Type of Wash: " << typeOfWash
          << " | Interior Cleaning Required?: " << interiorCleaningRequired
          << " | VIP?: " << isVIP << endl
-         << " | Water Usage: " << water << " gL"
-         << " | Soap Usage: " << soap << " gL";
+         << " | Water Usage: " << water << "gL"
+         << " | Soap Usage: " << soap << "gL";
 }
 
 string Vehicle::licenseGenerator()
