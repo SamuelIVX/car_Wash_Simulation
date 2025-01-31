@@ -10,6 +10,15 @@ Toyota::Toyota()
     hasTPMS = rand() % 2;
     hasUnderbodyCoating = rand() % 2;
     hasAirPurifier = rand() % 2;
+
+    if (hasTPMS)
+        washTime += 5;
+    if (hasUnderbodyCoating)
+        washTime += 10;
+    if (hasAirPurifier)
+        washTime += 5;
+    if (interiorCleaningRequired)
+        washTime += 12;
 }
 
 Toyota::~Toyota() {}

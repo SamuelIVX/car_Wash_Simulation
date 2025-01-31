@@ -5,14 +5,14 @@
 #include "Headers/Vehicle.h"
 #include "Headers/Tesla.h"
 #include "Headers/Volkswagon.h"
-// #include "Headers/Toyota.h"
-// #include "Headers/Nissan.h"
-// #include "Headers/Lamborghini.h"
-// #include "Headers/Jeep.h"
-// #include "Headers/Hellcat.h"
-// #include "Headers/Ford.h"
-// #include "Headers/Chevrolet.h"
-// #include "Headers/BMW.h"
+#include "Headers/Toyota.h"
+#include "Headers/Nissan.h"
+#include "Headers/Lamborghini.h"
+#include "Headers/Jeep.h"
+#include "Headers/Hellcat.h"
+#include "Headers/Ford.h"
+#include "Headers/Chevrolet.h"
+#include "Headers/BMW.h"
 #include "Que.h"     //Provides queue
 #include "washing.h" // Provides averager, bool_source, washer
 #include "CarInfo.h" //The class I created
@@ -51,7 +51,7 @@ int main()
     Vehicle *cars[10];
     cars[0] = new Tesla();
     cars[1] = new Volkswagon();
-    // cars[2] = new Toyota();
+    cars[2] = new Toyota();
     // cars[3] = new Nissan();
     // cars[4] = new Lamborghini();
     // cars[5] = new Jeep();
@@ -60,12 +60,12 @@ int main()
     // cars[8] = new Chevrolet();
     // cars[9] = new Chevrolet();
 
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 3; i++)
     {
         cout << "car: " << i + 1 << endl;
         cars[i]->display();
     }
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 3; i++)
     {
         delete cars[i];
     }
