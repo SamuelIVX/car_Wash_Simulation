@@ -1,20 +1,59 @@
 #include <iostream>
 #include "../Headers/Volkswagon.h"
 #include <ctime>
+#include <unordered_map>
 
 using namespace std;
 
 Volkswagon::Volkswagon()
 {
     int randomValue = rand() % 4;
+
     string wheelTypes[] = {"Aluminum", "Alloy", "Steel", "Chrome"};
-    string paintTypes[] = {"Metallic", "Brushed", "Gloos", "Matte"};
+    string paintTypes[] = {"Metallic", "Brushed", "Gloss", "Matte"};
     string interiorMaterials[] = {"Leather", "Fabric", "V-Tex", "Cloth"};
 
+    unordered_map<string, int> wheelWashTimes = {
+        {"Alloy", 3},
+        {"Steel", 5},
+        {"Aluminum", 8},
+        {"Chrome", 10}};
+
+    unordered_map<string, int> paintWashTimes = {
+        {"Gloss", 2},
+        {"Metallic", 4},
+        {"Brushed", 6},
+        {"Matte", 8}};
+
+    unordered_map<string, int> interiorWashTimes = {
+        {"Leather", 2},
+        {"V-Tex", 3},
+        {"Cloth", 4},
+        {"Fabric", 5}};
+
+    unordered_map<string, int> waterUsages = {
+        {"Hand Wash", 35},
+        {"Automatic", 45},
+        {"Full Service", 60}};
+
+    unordered_map<string, int> soapUsages = {
+        {"Hand Wash", 2},
+        {"Automatic", 1},
+        {"Full Service", 3}};
+
     setCarType("Volkswagon");
+
     wheelType = wheelTypes[randomValue];
     paintType = paintTypes[randomValue];
     interiorMaterial = interiorMaterials[randomValue];
+
+    if (interiorCleaningRequired)
+        washTime += wheelWashTimes[wheelType] + paintWashTimes[paintType] + interiorWashTimes[interiorMaterial];
+    else
+        washTime += wheelWashTimes[wheelType] + paintWashTimes[paintType];
+
+    water = waterUsages[typeOfWash];
+    soap = soapUsages[typeOfWash];
 }
 
 Volkswagon::~Volkswagon() {}
