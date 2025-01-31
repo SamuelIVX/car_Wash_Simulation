@@ -8,6 +8,13 @@ Tesla::Tesla()
     batteryInspected = rand() % 2;
     numberOfSensors = rand() % 12 + 1;
     sensorCleaningRequired = rand() % 2;
+
+    if (!batteryInspected)
+        washTime += 2;
+    if (sensorCleaningRequired)
+        washTime += numberOfSensors * 2;
+    if (interiorCleaningRequired)
+        washTime += 13;
 }
 
 Tesla::~Tesla() {}

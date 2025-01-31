@@ -3,7 +3,7 @@
 #include <cstdlib>  // Provides EXIT_SUCCESS
 #include <unistd.h> //For the sleep function
 #include "Headers/Vehicle.h"
-// #include "Headers/Tesla.h"
+#include "Headers/Tesla.h"
 #include "Headers/Volkswagon.h"
 // #include "Headers/Toyota.h"
 // #include "Headers/Nissan.h"
@@ -49,8 +49,8 @@ int main()
     // car_wash_simulate(time_to_wash, arrival_probability, total_time);
 
     Vehicle *cars[10];
-    // cars[0] = new Tesla();
-    cars[0] = new Volkswagon();
+    cars[0] = new Tesla();
+    cars[1] = new Volkswagon();
     // cars[2] = new Toyota();
     // cars[3] = new Nissan();
     // cars[4] = new Lamborghini();
@@ -60,12 +60,12 @@ int main()
     // cars[8] = new Chevrolet();
     // cars[9] = new Chevrolet();
 
-    for (int i = 0; i < 1; i++)
+    for (int i = 0; i < 2; i++)
     {
         cout << "car: " << i + 1 << endl;
         cars[i]->display();
     }
-    for (int i = 0; i < 1; i++)
+    for (int i = 0; i < 2; i++)
     {
         delete cars[i];
     }
