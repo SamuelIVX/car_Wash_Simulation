@@ -9,7 +9,20 @@ Nissan::Nissan()
     setCarType("Nissan");
     AWDorFWD = (rand() % 2 == 1 ? "All-Wheel-Drive" : "Front-Wheel-Drive");
     roofType = (rand() % 2 == 1 ? "Sunroof" : "Panoramic Roof");
-    bool paintProtection = rand() % 2;
+    paintProtection = rand() % 2;
+
+    if (paintProtection)
+        washTime += 10;
+    if (interiorCleaningRequired)
+        washTime += 10;
+
+    unordered_map<string, int> driveTypes = {
+        {"All-Wheel-Drive", 10},
+        {"Front-Wheel-Drive", 8}};
+    unordered_map<string, int> roofTypes = {
+        {"Sunroof", 1},
+        {"Panoramic Roof", 3}};
+    washTime += driveTypes[AWDorFWD] + roofTypes[roofType];
 }
 
 Nissan::~Nissan() {}
