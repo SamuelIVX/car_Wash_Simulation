@@ -5,6 +5,7 @@
 #include "Headers/Toyota.h"
 #include "Headers/Nissan.h"
 #include "Headers/Lamborghini.h"
+#include "Headers/Jeep.h"
 #include <string>
 #include <ctime>
 
@@ -20,13 +21,14 @@ int main()
     cars[2] = new Toyota();
     cars[3] = new Nissan();
     cars[4] = new Lamborghini();
+    cars[5] = new Jeep();
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 6; i++)
     {
         cout << "car: " << i + 1 << endl;
         cars[i]->display();
     }
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 6; i++)
     {
         delete cars[i];
     }
