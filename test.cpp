@@ -9,7 +9,7 @@
 #include "Headers/Hellcat.h"
 #include "Headers/Ford.h"
 #include "Headers/Chevrolet.h"
-
+#include "Headers/BMW.h"
 #include <string>
 #include <ctime>
 
@@ -29,13 +29,14 @@ int main()
     cars[6] = new Hellcat();
     cars[7] = new Ford();
     cars[8] = new Chevrolet();
+    cars[9] = new Chevrolet();
 
-    for (int i = 0; i < 9; i++)
+    for (int i = 0; i < 10; i++)
     {
         cout << "car: " << i + 1 << endl;
         cars[i]->display();
     }
-    for (int i = 0; i < 9; i++)
+    for (int i = 0; i < 10; i++)
     {
         delete cars[i];
     }
