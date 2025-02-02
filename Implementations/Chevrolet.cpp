@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Chevrolet::Chevrolet()
+Chevrolet::Chevrolet(int arrivalTime) : Vehicle(arrivalTime)
 {
     int randomValue = rand() % 3;
     string vehicleTypes[] = {"Truck", "SUV", "Car"};

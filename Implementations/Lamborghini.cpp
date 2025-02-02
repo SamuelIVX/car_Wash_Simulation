@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Lamborghini::Lamborghini()
+Lamborghini::Lamborghini(int arrivalTime) : Vehicle(arrivalTime)
 {
     int randomValue = rand() % 2;
     string paintFinishes[] = {"Metallic", "Matte", "Glossy"};

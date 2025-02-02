@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Jeep::Jeep()
+Jeep::Jeep(int arrivalTime) : Vehicle(arrivalTime)
 {
     setCarType("Jeep");
     hasFourWheelDrive = rand() % 2;

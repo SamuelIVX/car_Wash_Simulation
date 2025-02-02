@@ -7,7 +7,7 @@ using namespace std;
 class Vehicle
 {
 public:
-    Vehicle();
+    Vehicle(int arrivalTime);
 
     virtual ~Vehicle();
 

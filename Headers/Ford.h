@@ -4,7 +4,7 @@
 class Ford : public Vehicle
 {
 public:
-    Ford();
+    Ford(int arrivalTime);
 
     virtual ~Ford();
 

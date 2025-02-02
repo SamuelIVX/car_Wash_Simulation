@@ -4,7 +4,7 @@
 class Chevrolet : public Vehicle
 {
 public:
-    Chevrolet();
+    Chevrolet(int arrivalTime);
 
     virtual ~Chevrolet();
 

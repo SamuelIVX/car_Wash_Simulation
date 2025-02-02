@@ -4,7 +4,7 @@
 class BMW : public Vehicle
 {
 public:
-    BMW();
+    BMW(int arrivalTime);
 
     virtual ~BMW();
 

@@ -4,7 +4,7 @@
 class Jeep : public Vehicle
 {
 public:
-    Jeep();
+    Jeep(int arrivalTime);
 
     virtual ~Jeep();
 

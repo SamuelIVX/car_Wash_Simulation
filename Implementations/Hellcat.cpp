@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Hellcat::Hellcat()
+Hellcat::Hellcat(int arrivalTime) : Vehicle(arrivalTime)
 {
     setCarType("Hellcat");
     hasWideTires = rand() % 2;

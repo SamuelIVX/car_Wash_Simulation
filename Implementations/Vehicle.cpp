@@ -4,7 +4,11 @@
 
 using namespace std;
 
-Vehicle::Vehicle() { propertyGenerator(); }
+Vehicle::Vehicle(int arrivalTime)
+{
+    this->arrivalTime = arrivalTime;
+    propertyGenerator();
+}
 
 Vehicle::~Vehicle() {}
 

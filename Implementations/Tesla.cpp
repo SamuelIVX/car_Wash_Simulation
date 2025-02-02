@@ -2,7 +2,7 @@
 #include "../Headers/Tesla.h"
 using namespace std;
 
-Tesla::Tesla()
+Tesla::Tesla(int arrivalTime) : Vehicle(arrivalTime)
 {
     setCarType("Tesla");
     batteryInspected = rand() % 2;

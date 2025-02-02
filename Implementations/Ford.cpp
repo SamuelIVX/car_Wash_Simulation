@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Ford::Ford()
+Ford::Ford(int arrivalTime) : Vehicle(arrivalTime)
 {
 
     int randomValue = rand() % 4;

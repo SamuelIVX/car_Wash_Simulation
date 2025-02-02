@@ -4,7 +4,7 @@
 class Lamborghini : public Vehicle
 {
 public:
-    Lamborghini();
+    Lamborghini(int arrivalTime);
 
     virtual ~Lamborghini();
 

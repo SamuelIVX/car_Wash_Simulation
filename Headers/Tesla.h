@@ -4,7 +4,7 @@
 class Tesla : public Vehicle
 {
 public:
-    Tesla();
+    Tesla(int arrivalTime);
 
     virtual ~Tesla();
 

@@ -4,7 +4,7 @@
 class Toyota : public Vehicle
 {
 public:
-    Toyota();
+    Toyota(int arrivalTime);
 
     virtual ~Toyota();
 

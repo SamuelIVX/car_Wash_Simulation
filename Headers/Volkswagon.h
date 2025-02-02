@@ -4,7 +4,7 @@
 class Volkswagon : public Vehicle
 {
 public:
-    Volkswagon();
+    Volkswagon(int arrivalTime);
 
     virtual ~Volkswagon();
 

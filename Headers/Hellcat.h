@@ -4,7 +4,7 @@
 class Hellcat : public Vehicle
 {
 public:
-    Hellcat();
+    Hellcat(int arrivalTime);
 
     virtual ~Hellcat();
 

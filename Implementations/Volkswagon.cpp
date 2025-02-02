@@ -5,8 +5,9 @@
 
 using namespace std;
 
-Volkswagon::Volkswagon()
+Volkswagon::Volkswagon(int arrivalTime) : Vehicle(arrivalTime)
 {
+
     int randomValue = rand() % 4;
 
     string wheelTypes[] = {"Aluminum", "Alloy", "Steel", "Chrome"};

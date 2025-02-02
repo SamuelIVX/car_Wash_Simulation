@@ -4,7 +4,7 @@
 class Nissan : public Vehicle
 {
 public:
-    Nissan();
+    Nissan(int arrivalTime);
 
     virtual ~Nissan();
 

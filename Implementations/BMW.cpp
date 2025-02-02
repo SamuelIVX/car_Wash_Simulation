@@ -4,7 +4,7 @@
 
 using namespace std;
 
-BMW::BMW()
+BMW::BMW(int arrivalTime) : Vehicle(arrivalTime)
 {
     int randomValue = rand() % 3;
     string models[] = {"3-Series", "M4", "X5"};

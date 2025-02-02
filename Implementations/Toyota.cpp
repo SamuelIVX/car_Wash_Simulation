@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Toyota::Toyota()
+Toyota::Toyota(int arrivalTime) : Vehicle(arrivalTime)
 {
     setCarType("Toyota");
     hasTPMS = rand() % 2;

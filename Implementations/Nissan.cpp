@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Nissan::Nissan()
+Nissan::Nissan(int arrivalTime) : Vehicle(arrivalTime)
 {
     setCarType("Nissan");
     AWDorFWD = (rand() % 2 == 1 ? "All-Wheel-Drive" : "Front-Wheel-Drive");
