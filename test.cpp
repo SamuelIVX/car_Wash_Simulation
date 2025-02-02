@@ -48,26 +48,18 @@ int main()
     // // Starting the simulation
     // car_wash_simulate(time_to_wash, arrival_probability, total_time);
 
-    Vehicle *cars[10];
-    cars[0] = new Tesla(1);
-    cars[1] = new Volkswagon(2);
-    cars[2] = new Toyota(3);
-    cars[3] = new Nissan(4);
-    cars[4] = new Lamborghini(5);
-    cars[5] = new Jeep(6);
-    cars[6] = new Hellcat(7);
-    cars[7] = new Ford(8);
-    cars[8] = new Chevrolet(9);
-    cars[9] = new BMW(10);
-
+    std::vector<Vehicle *> cars;
     for (int i = 0; i < 10; i++)
     {
+        Vehicle *car = Vehicle::createRandomCar(i);
+        cars.push_back(car);
         cout << "car: " << i + 1 << endl;
-        cars[i]->display();
+        car->display();
     }
-    for (int i = 0; i < 10; i++)
+
+    for (auto &car : cars)
     {
-        delete cars[i];
+        delete car;
     }
 
     return 0;

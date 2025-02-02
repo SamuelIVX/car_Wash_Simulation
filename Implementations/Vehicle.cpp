@@ -1,6 +1,15 @@
 #include <iostream>
-#include "../Headers/Vehicle.h"
 #include <ctime>
+#include "../Headers/Tesla.h"
+#include "../Headers/Volkswagon.h"
+#include "../Headers/Toyota.h"
+#include "../Headers/Nissan.h"
+#include "../Headers/Lamborghini.h"
+#include "../Headers/Jeep.h"
+#include "../Headers/Hellcat.h"
+#include "../Headers/Ford.h"
+#include "../Headers/Chevrolet.h"
+#include "../Headers/BMW.h"
 
 using namespace std;
 
@@ -11,6 +20,36 @@ Vehicle::Vehicle(int arrivalTime)
 }
 
 Vehicle::~Vehicle() {}
+
+Vehicle *Vehicle::createRandomCar(int arrivalTime)
+{
+    int randomNumber = rand() % 10;
+    switch (randomNumber)
+    {
+    case 0:
+        return new Tesla(arrivalTime);
+    case 1:
+        return new Volkswagon(arrivalTime);
+    case 2:
+        return new Toyota(arrivalTime);
+    case 3:
+        return new Nissan(arrivalTime);
+    case 4:
+        return new Lamborghini(arrivalTime);
+    case 5:
+        return new Jeep(arrivalTime);
+    case 6:
+        return new Hellcat(arrivalTime);
+    case 7:
+        return new Ford(arrivalTime);
+    case 8:
+        return new Chevrolet(arrivalTime);
+    case 9:
+        return new BMW(arrivalTime);
+    default:
+        return nullptr;
+    }
+}
 
 float Vehicle::getWaterUsage() const { return water; }
 

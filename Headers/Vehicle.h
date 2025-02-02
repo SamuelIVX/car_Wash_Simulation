@@ -11,6 +11,8 @@ public:
 
     virtual ~Vehicle();
 
+    static Vehicle *createRandomCar(int arrivalTime);
+
     virtual int getArrivalTime() const = 0;
 
     virtual int getWashTime() const = 0;
