@@ -54,18 +54,18 @@ int main()
     cars[2] = new Toyota();
     cars[3] = new Nissan();
     cars[4] = new Lamborghini();
-    // cars[5] = new Jeep();
+    cars[5] = new Jeep();
     // cars[6] = new Hellcat();
     // cars[7] = new Ford();
     // cars[8] = new Chevrolet();
     // cars[9] = new Chevrolet();
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 6; i++)
     {
         cout << "car: " << i + 1 << endl;
         cars[i]->display();
     }
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 6; i++)
     {
         delete cars[i];
     }

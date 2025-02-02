@@ -10,6 +10,15 @@ Jeep::Jeep()
     hasFourWheelDrive = rand() % 2;
     hasOffRoadTires = rand() % 2;
     hasRoofRack = rand() % 2;
+
+    if (interiorCleaningRequired)
+        washTime += 14;
+    if (hasFourWheelDrive)
+        washTime += 8;
+    if (hasOffRoadTires)
+        washTime += 15;
+    if (hasRoofRack)
+        washTime += 4;
 }
 
 Jeep::~Jeep() {}
