@@ -13,6 +13,22 @@ Lamborghini::Lamborghini()
     paintFinish = paintFinishes[randomValue];
     hasSpoiler = rand() % 2;
     HybridorElectric = (rand() % 2 == 1 ? "Hybrid" : "Electric");
+
+    unordered_map<string, int> typesOfPaint{
+        {"Metallic", 4},
+        {"Matte", 5},
+        {"Glossy", 6}};
+
+    unordered_map<string, int> carTypes{
+        {"Hybrid", 3},
+        {"Electric", 4}};
+
+    washTime += typesOfPaint[paintFinish] + carTypes[HybridorElectric];
+
+    if (interiorCleaningRequired)
+        washTime += 12;
+    if (hasSpoiler)
+        washTime += 5;
 }
 
 Lamborghini::~Lamborghini() {}
