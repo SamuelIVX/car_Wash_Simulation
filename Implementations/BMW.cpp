@@ -14,6 +14,23 @@ BMW::BMW()
     model = models[randomValue];
     vehicleType = vehicleTypes[randomValue];
     hasRainSensingWipers = rand() % 2;
+
+    unordered_map<string, int> vehicleModelTimes{
+        {"3-Series", 6},
+        {"M4", 4},
+        {"X5", 7}};
+
+    unordered_map<string, int> vehicleTypeTimes{
+        {"Sedan", 10},
+        {"SUV", 8},
+        {"Sports", 7}};
+
+    washTime += vehicleModelTimes[model] + vehicleTypeTimes[vehicleType];
+
+    if (interiorCleaningRequired)
+        washTime += 13;
+    if (hasRainSensingWipers)
+        washTime += 6;
 }
 
 BMW::~BMW() {}

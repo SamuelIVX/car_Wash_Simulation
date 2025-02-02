@@ -41,7 +41,7 @@ string Vehicle::licenseGenerator()
 
 void Vehicle::propertyGenerator()
 {
-    int randomValue = rand() % 2;
+    int randomValue = rand() % 3;
     string washTypes[] = {"Hand Wash", "Automatic", "Full Service"};
     typeOfWash = washTypes[randomValue];
     washTime = (typeOfWash == "Hand Wash" ? 15 : typeOfWash == "Automatic" ? 5
