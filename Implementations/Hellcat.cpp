@@ -10,6 +10,15 @@ Hellcat::Hellcat()
     hasWideTires = rand() % 2;
     hasSportSuspension = rand() % 2;
     hasQuadExhaust = rand() % 2;
+
+    if (interiorCleaningRequired)
+        washTime += 11;
+    if (hasWideTires)
+        washTime += 5;
+    if (hasSportSuspension)
+        washTime += 7;
+    if (hasQuadExhaust)
+        washTime += 8;
 }
 
 Hellcat::~Hellcat() {}
