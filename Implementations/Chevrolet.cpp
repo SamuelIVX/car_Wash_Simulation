@@ -13,6 +13,19 @@ Chevrolet::Chevrolet()
     vehicleType = vehicleTypes[randomValue];
     bool hasActiveAero = rand() % 2;
     bool hasParkingSensors = rand() % 2;
+
+    unordered_map<string, int> vehicleTypeTimes{
+        {"Truck", 10},
+        {"SUV", 8},
+        {"Car", 7}};
+
+    washTime += vehicleTypeTimes[vehicleType];
+    if (interiorCleaningRequired)
+        washTime += 9;
+    if (hasActiveAero)
+        washTime += 8;
+    if (hasParkingSensors)
+        washTime += 3;
 }
 
 Chevrolet::~Chevrolet() {}
