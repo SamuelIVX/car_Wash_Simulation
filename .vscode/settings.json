@@ -3,6 +3,7 @@
         "*.js": "javascript",
         "iostream": "cpp",
         "ostream": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "unordered_map": "cpp"
     }
 }

@@ -16,6 +16,23 @@ Ford::Ford()
     vehicleType = vehicleTypes[randomValue];
     driveTrain = driveTrains[randomValue];
     driveMode = driveModes[randomValue];
+
+    unordered_map<string, int> vehicleTypeTimes{
+        {"Truck", 10},
+        {"SUV", 8},
+        {"Car", 7}};
+    unordered_map<string, int> driveTrainTimes{
+        {"FWD", 4},
+        {"RWD", 5},
+        {"AWD", 6}};
+    unordered_map<string, int> driveModeTimes{
+        {"Sport", 4},
+        {"Track", 6},
+        {"Off-road", 8}};
+
+    washTime += vehicleTypeTimes[vehicleType] + driveTrainTimes[driveTrain] + driveModeTimes[driveMode];
+    if (interiorCleaningRequired)
+        washTime += 13;
 }
 
 Ford::~Ford() {}
