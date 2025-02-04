@@ -16,6 +16,7 @@ using namespace std;
 Vehicle::Vehicle(int arrivalTime)
 {
     this->arrivalTime = arrivalTime;
+    queuePosition++;
     propertyGenerator();
 }
 
