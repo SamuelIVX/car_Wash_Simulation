@@ -53,8 +53,6 @@ string Nissan::getLicensePlate() const { return licensePlate; }
 
 string Nissan::getTypeOfWash() const { return typeOfWash; }
 
-int Nissan::getQueuePosition() const { return queuePosition; }
-
 void Nissan::display() const
 {
     Vehicle::display();

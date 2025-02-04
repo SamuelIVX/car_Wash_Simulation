@@ -48,8 +48,6 @@ string Jeep::getLicensePlate() const { return licensePlate; }
 
 string Jeep::getTypeOfWash() const { return typeOfWash; }
 
-int Jeep::getQueuePosition() const { return queuePosition; }
-
 void Jeep::display() const
 {
     Vehicle::display();

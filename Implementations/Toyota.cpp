@@ -48,8 +48,6 @@ string Toyota::getLicensePlate() const { return licensePlate; }
 
 string Toyota::getTypeOfWash() const { return typeOfWash; }
 
-int Toyota::getQueuePosition() const { return queuePosition; }
-
 void Toyota::display() const
 {
     Vehicle::display();

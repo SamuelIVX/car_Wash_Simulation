@@ -44,8 +44,6 @@ string Tesla::getLicensePlate() const { return licensePlate; }
 
 string Tesla::getTypeOfWash() const { return typeOfWash; }
 
-int Tesla::getQueuePosition() const { return queuePosition; }
-
 void Tesla::display() const
 {
     Vehicle::display();

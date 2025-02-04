@@ -62,8 +62,6 @@ string Ford::getLicensePlate() const { return licensePlate; }
 
 string Ford::getTypeOfWash() const { return typeOfWash; }
 
-int Ford::getQueuePosition() const { return queuePosition; }
-
 void Ford::display() const
 {
     Vehicle::display();

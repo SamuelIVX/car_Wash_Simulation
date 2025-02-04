@@ -232,12 +232,11 @@ ItemType &Que<ItemType>::getFront() const
 template <class ItemType>
 void Que<ItemType>::printQueue() const
 {
-    if (empty())
-    {
-        cout << "The queue is empty.\n";
-        return;
-    }
-
+    // if (empty())
+    // {
+    //     cout << "The queue is empty.\n";
+    //     return;
+    // }
     NodeType<ItemType> *current = qFront;
     cout << "Current queue: ";
     while (current != nullptr)
@@ -279,8 +278,8 @@ void Que<ItemType>::statistical_report(double average_waiting_time, int cars_was
     // Print out all of the private data members of CarInfo in the queue
     while (currentCar != nullptr)
     {
-        cout << "\nCar #: " << currentCar->info->getQueuePosition() << " | CarType: " << currentCar->info->getCarType() << " | ArrivalTime: " << currentCar->info->getArrivalTime() << " | Type Of Wash: " << currentCar->info->getTypeOfWash() << " | Amount of Water Used: " << currentCar->info->getWaterUsage() << " gallons | Amount of Soap Used: " << currentCar->info->getSoapUsage() << " ounces |" << endl;
-        cout << setfill('-') << setw(143);
+        cout << "\nCar License Plate: " << currentCar->info->getLicensePlate() << " | CarType: " << currentCar->info->getCarType() << " | VIP: " << (currentCar->info->getIsVIP() == 1 ? "True" : "False") << " | ArrivalTime: " << currentCar->info->getArrivalTime() << " | Type Of Wash: " << currentCar->info->getTypeOfWash() << " | Amount of Water Used: " << currentCar->info->getWaterUsage() << " gallons | Amount of Soap Used: " << currentCar->info->getSoapUsage() << " ounces |" << endl;
+        cout << setfill('-') << setw(165);
 
         currentCar = currentCar->next;
         // sleep(2);

@@ -23,7 +23,7 @@ public:
 
     virtual string getLicensePlate() const = 0;
 
-    virtual int getQueuePosition() const = 0;
+    virtual int getQueuePosition() const;
 
     virtual string getTypeOfWash() const = 0;
 
@@ -32,6 +32,8 @@ public:
     virtual float getWaterUsage() const;
 
     virtual float getSoapUsage() const;
+
+    virtual float getIsVIP() const;
 
     virtual bool needsInteriorCleaning();
 

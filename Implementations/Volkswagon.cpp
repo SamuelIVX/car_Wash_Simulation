@@ -71,8 +71,6 @@ string Volkswagon::getLicensePlate() const { return licensePlate; }
 
 string Volkswagon::getTypeOfWash() const { return typeOfWash; }
 
-int Volkswagon::getQueuePosition() const { return queuePosition; }
-
 void Volkswagon::display() const
 {
     Vehicle::display();

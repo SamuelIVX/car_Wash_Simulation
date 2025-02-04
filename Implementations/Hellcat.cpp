@@ -48,8 +48,6 @@ string Hellcat::getLicensePlate() const { return licensePlate; }
 
 string Hellcat::getTypeOfWash() const { return typeOfWash; }
 
-int Hellcat::getQueuePosition() const { return queuePosition; }
-
 void Hellcat::display() const
 {
     Vehicle::display();

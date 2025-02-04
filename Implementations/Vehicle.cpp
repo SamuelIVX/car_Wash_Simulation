@@ -16,8 +16,9 @@ using namespace std;
 Vehicle::Vehicle(int arrivalTime)
 {
     this->arrivalTime = arrivalTime;
-    queuePosition++;
     propertyGenerator();
+    if (isVIP)
+        washTime /= 2;
 }
 
 Vehicle::~Vehicle() {}
@@ -56,7 +57,13 @@ float Vehicle::getWaterUsage() const { return water; }
 
 float Vehicle::getSoapUsage() const { return soap; }
 
+float Vehicle::getIsVIP() const { return isVIP; }
+
+int Vehicle::getQueuePosition() const { return queuePosition; };
+
 bool Vehicle::needsInteriorCleaning() { return interiorCleaningRequired; }
+
+string Vehicle::getLicensePlate() const { return licensePlate; }
 
 void Vehicle::display() const
 {
@@ -90,6 +97,7 @@ void Vehicle::propertyGenerator()
     typeOfWash = washTypes[randomValue];
     washTime = (typeOfWash == "Hand Wash" ? 15 : typeOfWash == "Automatic" ? 5
                                                                            : 30);
+    isVIP = rand() % 2;
     licensePlate = licenseGenerator();
     interiorCleaningRequired = rand() % 2;
     water = rand() % 6 + 1;

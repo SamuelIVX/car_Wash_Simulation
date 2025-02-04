@@ -58,8 +58,6 @@ string Lamborghini::getLicensePlate() const { return licensePlate; }
 
 string Lamborghini::getTypeOfWash() const { return typeOfWash; }
 
-int Lamborghini::getQueuePosition() const { return queuePosition; }
-
 void Lamborghini::display() const
 {
     Vehicle::display();

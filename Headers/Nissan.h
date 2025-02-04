@@ -18,8 +18,6 @@ public:
 
     virtual string getTypeOfWash() const override;
 
-    virtual int getQueuePosition() const override;
-
     virtual void setCarType(string type) override;
 
     virtual void display() const override;

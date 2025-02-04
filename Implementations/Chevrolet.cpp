@@ -56,8 +56,6 @@ string Chevrolet::getLicensePlate() const { return licensePlate; }
 
 string Chevrolet::getTypeOfWash() const { return typeOfWash; }
 
-int Chevrolet::getQueuePosition() const { return queuePosition; }
-
 void Chevrolet::display() const
 {
     Vehicle::display();

@@ -60,8 +60,6 @@ string BMW::getLicensePlate() const { return licensePlate; }
 
 string BMW::getTypeOfWash() const { return typeOfWash; }
 
-int BMW::getQueuePosition() const { return queuePosition; }
-
 void BMW::display() const
 {
     Vehicle::display();
