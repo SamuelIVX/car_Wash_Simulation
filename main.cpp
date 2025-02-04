@@ -56,8 +56,8 @@ int main()
     return 0;
 }
 
-// g++ -o outut carwash.cpp Implementations/*.cpp Washing.cpp -std=c++17
-// ./carwash
+// g++ -o output main.cpp Implementations/*.cpp Washing.cpp -std=c++17
+// ./output
 
 // Function Definition for car_wash_simulate
 void car_wash_simulate(double arrival_prob, unsigned int total_time)
