@@ -16,20 +16,20 @@ Volkswagon::Volkswagon(int arrivalTime) : Vehicle(arrivalTime)
 
     unordered_map<string, int> wheelWashTimes = {
         {"Alloy", 3},
-        {"Steel", 5},
-        {"Aluminum", 8},
-        {"Chrome", 10}};
+        {"Steel", 4},
+        {"Aluminum", 5},
+        {"Chrome", 5}};
 
     unordered_map<string, int> paintWashTimes = {
         {"Gloss", 2},
-        {"Metallic", 4},
-        {"Brushed", 6},
-        {"Matte", 8}};
+        {"Metallic", 3},
+        {"Brushed", 4},
+        {"Matte", 3}};
 
     unordered_map<string, int> interiorWashTimes = {
         {"Leather", 2},
         {"V-Tex", 3},
-        {"Cloth", 4},
+        {"Cloth", 3},
         {"Fabric", 5}};
 
     unordered_map<string, int> waterUsages = {

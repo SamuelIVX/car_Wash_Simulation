@@ -15,20 +15,33 @@ Lamborghini::Lamborghini(int arrivalTime) : Vehicle(arrivalTime)
     HybridorElectric = (rand() % 2 == 1 ? "Hybrid" : "Electric");
 
     unordered_map<string, int> typesOfPaint{
-        {"Metallic", 4},
-        {"Matte", 5},
-        {"Glossy", 6}};
+        {"Metallic", 2},
+        {"Matte", 3},
+        {"Glossy", 3}};
 
     unordered_map<string, int> carTypes{
         {"Hybrid", 3},
-        {"Electric", 4}};
+        {"Electric", 3}};
 
     washTime += typesOfPaint[paintFinish] + carTypes[HybridorElectric];
 
+    unordered_map<string, int> waterUsages = {
+        {"Hand Wash", 35},
+        {"Automatic", 45},
+        {"Full Service", 60}};
+
+    unordered_map<string, int> soapUsages = {
+        {"Hand Wash", 2},
+        {"Automatic", 1},
+        {"Full Service", 3}};
+
+    water = waterUsages[typeOfWash];
+    soap = soapUsages[typeOfWash];
+
     if (interiorCleaningRequired)
-        washTime += 12;
+        washTime += 4;
     if (hasSpoiler)
-        washTime += 5;
+        washTime += 3;
 }
 
 Lamborghini::~Lamborghini() {}

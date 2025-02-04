@@ -16,21 +16,34 @@ BMW::BMW(int arrivalTime) : Vehicle(arrivalTime)
     hasRainSensingWipers = rand() % 2;
 
     unordered_map<string, int> vehicleModelTimes{
-        {"3-Series", 6},
+        {"3-Series", 2},
         {"M4", 4},
-        {"X5", 7}};
+        {"X5", 3}};
 
     unordered_map<string, int> vehicleTypeTimes{
-        {"Sedan", 10},
-        {"SUV", 8},
-        {"Sports", 7}};
+        {"Sedan", 5},
+        {"SUV", 4},
+        {"Sports", 3}};
 
     washTime += vehicleModelTimes[model] + vehicleTypeTimes[vehicleType];
 
+    unordered_map<string, int> waterUsages = {
+        {"Hand Wash", 35},
+        {"Automatic", 45},
+        {"Full Service", 60}};
+
+    unordered_map<string, int> soapUsages = {
+        {"Hand Wash", 2},
+        {"Automatic", 1},
+        {"Full Service", 3}};
+
+    water = waterUsages[typeOfWash];
+    soap = soapUsages[typeOfWash];
+
     if (interiorCleaningRequired)
-        washTime += 13;
+        washTime += 7;
     if (hasRainSensingWipers)
-        washTime += 6;
+        washTime += 3;
 }
 
 BMW::~BMW() {}

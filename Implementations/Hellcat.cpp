@@ -11,14 +11,27 @@ Hellcat::Hellcat(int arrivalTime) : Vehicle(arrivalTime)
     hasSportSuspension = rand() % 2;
     hasQuadExhaust = rand() % 2;
 
+    unordered_map<string, int> waterUsages = {
+        {"Hand Wash", 35},
+        {"Automatic", 45},
+        {"Full Service", 60}};
+
+    unordered_map<string, int> soapUsages = {
+        {"Hand Wash", 2},
+        {"Automatic", 1},
+        {"Full Service", 3}};
+
+    water = waterUsages[typeOfWash];
+    soap = soapUsages[typeOfWash];
+
     if (interiorCleaningRequired)
-        washTime += 11;
+        washTime += 6;
     if (hasWideTires)
         washTime += 5;
     if (hasSportSuspension)
-        washTime += 7;
+        washTime += 5;
     if (hasQuadExhaust)
-        washTime += 8;
+        washTime += 6;
 }
 
 Hellcat::~Hellcat() {}

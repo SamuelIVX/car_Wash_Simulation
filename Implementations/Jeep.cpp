@@ -11,14 +11,27 @@ Jeep::Jeep(int arrivalTime) : Vehicle(arrivalTime)
     hasOffRoadTires = rand() % 2;
     hasRoofRack = rand() % 2;
 
+    unordered_map<string, int> waterUsages = {
+        {"Hand Wash", 35},
+        {"Automatic", 45},
+        {"Full Service", 60}};
+
+    unordered_map<string, int> soapUsages = {
+        {"Hand Wash", 2},
+        {"Automatic", 1},
+        {"Full Service", 3}};
+
+    water = waterUsages[typeOfWash];
+    soap = soapUsages[typeOfWash];
+
     if (interiorCleaningRequired)
-        washTime += 14;
-    if (hasFourWheelDrive)
         washTime += 8;
-    if (hasOffRoadTires)
-        washTime += 15;
-    if (hasRoofRack)
+    if (hasFourWheelDrive)
         washTime += 4;
+    if (hasOffRoadTires)
+        washTime += 9;
+    if (hasRoofRack)
+        washTime += 3;
 }
 
 Jeep::~Jeep() {}

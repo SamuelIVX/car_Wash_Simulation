@@ -30,10 +30,6 @@ int main()
 
     double arrival_probability, total_time;
 
-    // Getting user inputs
-    // cout << "Enter time it takes to wash a car: ";
-    // cin >> time_to_wash;
-
     cout << "Enter arrival probability (0 <= p <= 1): ";
     cin >> arrival_probability;
 
@@ -42,16 +38,6 @@ int main()
 
     // Starting the simulation
     car_wash_simulate(arrival_probability, total_time);
-
-    // Que<Vehicle *> carWashQueue;
-    // for (int i = 0; i < 10; i++)
-    // {
-    //     Vehicle *car = Vehicle::createRandomCar(i + 1);
-    //     carWashQueue.addQ(car);
-    //     cout << "car: " << i + 1 << endl;
-    //     car->display();
-    // }
-    // carWashQueue.makeEmpty();
 
     return 0;
 }

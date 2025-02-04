@@ -17,22 +17,35 @@ Ford::Ford(int arrivalTime) : Vehicle(arrivalTime)
     driveTrain = driveTrains[randomValue];
     driveMode = driveModes[randomValue];
 
+    unordered_map<string, int> waterUsages = {
+        {"Hand Wash", 35},
+        {"Automatic", 45},
+        {"Full Service", 60}};
+
+    unordered_map<string, int> soapUsages = {
+        {"Hand Wash", 2},
+        {"Automatic", 1},
+        {"Full Service", 3}};
+
+    water = waterUsages[typeOfWash];
+    soap = soapUsages[typeOfWash];
+
     unordered_map<string, int> vehicleTypeTimes{
-        {"Truck", 10},
-        {"SUV", 8},
-        {"Car", 7}};
+        {"Truck", 5},
+        {"SUV", 4},
+        {"Car", 3}};
     unordered_map<string, int> driveTrainTimes{
-        {"FWD", 4},
-        {"RWD", 5},
-        {"AWD", 6}};
+        {"FWD", 3},
+        {"RWD", 3},
+        {"AWD", 2}};
     unordered_map<string, int> driveModeTimes{
-        {"Sport", 4},
-        {"Track", 6},
-        {"Off-road", 8}};
+        {"Sport", 3},
+        {"Track", 4},
+        {"Off-road", 5}};
 
     washTime += vehicleTypeTimes[vehicleType] + driveTrainTimes[driveTrain] + driveModeTimes[driveMode];
     if (interiorCleaningRequired)
-        washTime += 13;
+        washTime += 4;
 }
 
 Ford::~Ford() {}

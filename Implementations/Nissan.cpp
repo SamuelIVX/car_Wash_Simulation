@@ -12,16 +12,30 @@ Nissan::Nissan(int arrivalTime) : Vehicle(arrivalTime)
     paintProtection = rand() % 2;
 
     if (paintProtection)
-        washTime += 10;
+        washTime += 5;
     if (interiorCleaningRequired)
-        washTime += 10;
+        washTime += 5;
+
+    unordered_map<string, int> waterUsages = {
+        {"Hand Wash", 35},
+        {"Automatic", 45},
+        {"Full Service", 60}};
+
+    unordered_map<string, int> soapUsages = {
+        {"Hand Wash", 2},
+        {"Automatic", 1},
+        {"Full Service", 3}};
+
+    water = waterUsages[typeOfWash];
+    soap = soapUsages[typeOfWash];
 
     unordered_map<string, int> driveTypes = {
-        {"All-Wheel-Drive", 10},
-        {"Front-Wheel-Drive", 8}};
+        {"All-Wheel-Drive", 4},
+        {"Front-Wheel-Drive", 4}};
     unordered_map<string, int> roofTypes = {
         {"Sunroof", 1},
-        {"Panoramic Roof", 3}};
+        {"Panoramic Roof", 2}};
+
     washTime += driveTypes[AWDorFWD] + roofTypes[roofType];
 }
 

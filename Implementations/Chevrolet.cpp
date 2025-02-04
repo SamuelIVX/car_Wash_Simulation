@@ -15,15 +15,29 @@ Chevrolet::Chevrolet(int arrivalTime) : Vehicle(arrivalTime)
     bool hasParkingSensors = rand() % 2;
 
     unordered_map<string, int> vehicleTypeTimes{
-        {"Truck", 10},
-        {"SUV", 8},
-        {"Car", 7}};
+        {"Truck", 5},
+        {"SUV", 4},
+        {"Car", 3}};
 
     washTime += vehicleTypeTimes[vehicleType];
+
+    unordered_map<string, int> waterUsages = {
+        {"Hand Wash", 35},
+        {"Automatic", 45},
+        {"Full Service", 60}};
+
+    unordered_map<string, int> soapUsages = {
+        {"Hand Wash", 2},
+        {"Automatic", 1},
+        {"Full Service", 3}};
+
+    water = waterUsages[typeOfWash];
+    soap = soapUsages[typeOfWash];
+
     if (interiorCleaningRequired)
-        washTime += 9;
+        washTime += 5;
     if (hasActiveAero)
-        washTime += 8;
+        washTime += 3;
     if (hasParkingSensors)
         washTime += 3;
 }

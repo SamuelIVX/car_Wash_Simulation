@@ -11,14 +11,27 @@ Toyota::Toyota(int arrivalTime) : Vehicle(arrivalTime)
     hasUnderbodyCoating = rand() % 2;
     hasAirPurifier = rand() % 2;
 
+    unordered_map<string, int> waterUsages = {
+        {"Hand Wash", 35},
+        {"Automatic", 45},
+        {"Full Service", 60}};
+
+    unordered_map<string, int> soapUsages = {
+        {"Hand Wash", 2},
+        {"Automatic", 1},
+        {"Full Service", 3}};
+
+    water = waterUsages[typeOfWash];
+    soap = soapUsages[typeOfWash];
+
     if (hasTPMS)
-        washTime += 5;
+        washTime += 3;
     if (hasUnderbodyCoating)
-        washTime += 10;
+        washTime += 4;
     if (hasAirPurifier)
         washTime += 5;
     if (interiorCleaningRequired)
-        washTime += 12;
+        washTime += 6;
 }
 
 Toyota::~Toyota() {}
