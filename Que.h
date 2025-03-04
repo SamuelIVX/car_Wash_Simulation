@@ -279,7 +279,7 @@ void Que<ItemType>::statistical_report(double average_waiting_time, int cars_was
     while (currentCar != nullptr)
     {
         cout << "\nCar License Plate: " << currentCar->info->getLicensePlate() << " | CarType: " << currentCar->info->getCarType() << " | VIP: " << (currentCar->info->getIsVIP() == 1 ? "True" : "False") << " | ArrivalTime: " << currentCar->info->getArrivalTime() << " | Type Of Wash: " << currentCar->info->getTypeOfWash() << " | Amount of Water Used: " << currentCar->info->getWaterUsage() << " gallons | Amount of Soap Used: " << currentCar->info->getSoapUsage() << " ounces |" << endl;
-        cout << setfill('-') << setw(165);
+        cout << setfill('-') << setw(180);
 
         currentCar = currentCar->next;
         // sleep(2);
