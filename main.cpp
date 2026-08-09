@@ -18,6 +18,7 @@
 #include "CarInfo.h" //The class I created
 #include <string>
 #include <ctime>
+#include <vector>
 
 using namespace std;
 

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../Headers/Tesla.h"
+#include <unordered_map>
 using namespace std;
 
 Tesla::Tesla(int arrivalTime) : Vehicle(arrivalTime)
