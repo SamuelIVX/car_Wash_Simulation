@@ -47,7 +47,8 @@ public:
     Que();
 
     /**
-     * @brief Deep-copy construct from @p otherQue.
+     * @brief Copy queue nodes and stored payload values from @p otherQue.
+     * @note For Que<Vehicle *>, pointed-to Vehicle objects are not cloned.
      * @param otherQue Queue to duplicate.
      */
     Que(const Que<ItemType> &otherQue);
@@ -56,7 +57,8 @@ public:
     ~Que();
 
     /**
-     * @brief Assign by deep-copying @p otherQue into this queue.
+     * @brief Replace this queue with copied nodes and payload values.
+     * @note For Que<Vehicle *>, pointed-to Vehicle objects are not cloned.
      * @param otherQue Source queue; no-op if assigning to self.
      */
     void operator=(Que<ItemType> &otherQue);

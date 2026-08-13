@@ -5,10 +5,9 @@
  * Reads arrival probability and total simulated seconds from stdin, then runs
  * car_wash_simulate() over regular and VIP queues until time expires.
  *
- * Build (include CarInfoImp.cpp or link fails) — shell-glob the Implementations
- * directory so every .cpp there is linked, then add Washing.cpp and CarInfoImp.cpp:
- *   g++ -std=c++17 -Wall -Wextra -pedantic -o carwash main.cpp
- *       Implementations/<all-brand-and-Vehicle>.cpp Washing.cpp CarInfoImp.cpp
+ * Build (include CarInfoImp.cpp or link fails): see the trailing // compile line
+ * at the bottom of this file for the full g++ command with the Implementations
+ * shell glob (kept there to avoid nesting "* /" inside this block comment).
  */
 
 #include <stdlib.h>

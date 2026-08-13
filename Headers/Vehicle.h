@@ -31,9 +31,10 @@ public:
      * @brief Factory that returns a heap-allocated random concrete Vehicle subtype.
      * @param arrivalTime Simulation second stamped on the new car.
      * @return Owning pointer to a derived Vehicle; caller must delete.
-     * @example
+     * @code
      * Vehicle *car = Vehicle::createRandomCar(42);
      * // use car, then delete car;
+     * @endcode
      */
     static Vehicle *createRandomCar(int arrivalTime);
 

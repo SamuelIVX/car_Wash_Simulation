@@ -87,7 +87,8 @@ public:
 
     /**
      * @brief Set the length of the next wash cycle in simulated seconds.
-     * @param s Seconds required to complete one wash.
+     * @param s Positive number of seconds required to complete one wash.
+     * @pre s > 0.
      */
     void setWashingTime(unsigned int s);
 
@@ -98,7 +99,7 @@ public:
 
     /**
      * @brief Begin a wash cycle using the duration from setWashingTime().
-     * @pre is_busy() is false.
+     * @pre is_busy() is false and a positive wash duration is configured.
      * @post is_busy() is true until the configured seconds have elapsed via one_second().
      */
     void start_washing();
