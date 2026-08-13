@@ -44,7 +44,10 @@ public:
     /** @brief Total wash duration for this car (brand-adjusted). */
     virtual int getWashTime() const = 0;
 
-    /** @brief Set the display brand/type string. */
+    /**
+     * @brief Set the display brand/type string.
+     * @param type New brand/type label shown in queue prints.
+     */
     virtual void setCarType(string type) = 0;
 
     /** @brief Brand/type label used in queue prints. */
@@ -77,12 +80,20 @@ public:
     /** @brief Whether an interior clean was rolled for this car. */
     virtual bool needsInteriorCleaning();
 
-    /** @brief Roll shared wash type, VIP, plate, water/soap, and base wash time. */
+    /**
+     * @brief Roll shared wash type, VIP, plate, water/soap, and base wash time.
+     * @code
+     * car.propertyGenerator();  // mutates washTime, isVIP, plate, water, soap
+     * @endcode
+     */
     virtual void propertyGenerator();
 
     /**
      * @brief Build an 11-character alphanumeric license plate.
      * @return Random plate string.
+     * @code
+     * string plate = car.licenseGenerator();  // e.g. "A3K9Q2M7X1B"
+     * @endcode
      */
     virtual string licenseGenerator();
 

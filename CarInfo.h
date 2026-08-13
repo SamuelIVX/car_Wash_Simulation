@@ -26,6 +26,9 @@ class CarInfo{
         /**
          * @brief Construct a car arriving at @p a_t with randomized type and wash style.
          * @param a_t Simulation arrival time in seconds.
+         * @code
+         * CarInfo c(42);  // arrivalTime 42; type/wash rolled randomly
+         * @endcode
          */
         CarInfo(int a_t);
 
