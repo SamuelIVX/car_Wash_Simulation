@@ -83,7 +83,8 @@ public:
      * @param item Value to store (e.g. Vehicle *).
      * @code
      * Que<Vehicle *> q;
-     * q.addQ(Vehicle::createRandomCar(0));
+     * Vehicle *v = Vehicle::createRandomCar(0);
+     * q.addQ(v);  // caller still owns v; queue does not delete it
      * @endcode
      */
     void addQ(ItemType item);
