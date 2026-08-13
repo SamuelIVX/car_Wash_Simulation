@@ -1,8 +1,14 @@
+/**
+ * @file Tesla.cpp
+ * @brief Tesla wash-time, resource, and display overrides for the car-wash simulation.
+ */
+
 #include <iostream>
 #include "../Headers/Tesla.h"
 #include <unordered_map>
 using namespace std;
 
+/** Construct a Tesla; may extend washTime for battery/sensors/interior. */
 Tesla::Tesla(int arrivalTime) : Vehicle(arrivalTime)
 {
     setCarType("Tesla");
@@ -45,6 +51,7 @@ string Tesla::getLicensePlate() const { return licensePlate; }
 
 string Tesla::getTypeOfWash() const { return typeOfWash; }
 
+/** Print shared Vehicle fields plus Tesla-specific options. */
 void Tesla::display() const
 {
     Vehicle::display();

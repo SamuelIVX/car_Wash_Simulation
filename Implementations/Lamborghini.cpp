@@ -1,3 +1,8 @@
+/**
+ * @file Lamborghini.cpp
+ * @brief Lamborghini wash-time, resource, and display overrides for the car-wash simulation.
+ */
+
 #include <iostream>
 #include "../Headers/Lamborghini.h"
 #include <ctime>
@@ -5,6 +10,7 @@
 
 using namespace std;
 
+/** Construct a Lamborghini; paint and powertrain affect washTime. */
 Lamborghini::Lamborghini(int arrivalTime) : Vehicle(arrivalTime)
 {
     int randomValue = rand() % 2;
@@ -59,6 +65,7 @@ string Lamborghini::getLicensePlate() const { return licensePlate; }
 
 string Lamborghini::getTypeOfWash() const { return typeOfWash; }
 
+/** Print shared Vehicle fields plus Lamborghini-specific options. */
 void Lamborghini::display() const
 {
     Vehicle::display();

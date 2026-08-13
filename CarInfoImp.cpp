@@ -1,4 +1,9 @@
-//CarInfo Implementation File
+/**
+ * @file CarInfoImp.cpp
+ * @brief Out-of-line constructors and getters for CarInfo.
+ *
+ * Must be linked into the build (see main.cpp compile comment / CI workflow).
+ */
 
 #include "CarInfo.h"
 #include<iostream>
@@ -6,13 +11,11 @@
 
 using namespace std;
 
-//Default Constructor
 CarInfo::CarInfo(){
     carType = typeOfWash = "none";
     carNum = water = soap = arrivalTime = 0; 
 }
         
-//Parameterized Constructor
 CarInfo::CarInfo(int a_t){
     int randomNum = rand() % 5 + 1;
     carNum++;
@@ -56,7 +59,6 @@ CarInfo::CarInfo(int a_t){
         }
 }
 
-//All getter function definitions
 int CarInfo::getCarNum()const{
     return carNum;
 }

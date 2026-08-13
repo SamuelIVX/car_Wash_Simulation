@@ -1,3 +1,8 @@
+/**
+ * @file Hellcat.cpp
+ * @brief Hellcat wash-time, resource, and display overrides for the car-wash simulation.
+ */
+
 #include <iostream>
 #include "../Headers/Hellcat.h"
 #include <ctime>
@@ -5,6 +10,7 @@
 
 using namespace std;
 
+/** Construct a Hellcat; performance options extend washTime. */
 Hellcat::Hellcat(int arrivalTime) : Vehicle(arrivalTime)
 {
     setCarType("Hellcat");
@@ -49,6 +55,7 @@ string Hellcat::getLicensePlate() const { return licensePlate; }
 
 string Hellcat::getTypeOfWash() const { return typeOfWash; }
 
+/** Print shared Vehicle fields plus Hellcat-specific options. */
 void Hellcat::display() const
 {
     Vehicle::display();

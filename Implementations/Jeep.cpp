@@ -1,3 +1,8 @@
+/**
+ * @file Jeep.cpp
+ * @brief Jeep wash-time, resource, and display overrides for the car-wash simulation.
+ */
+
 #include <iostream>
 #include "../Headers/Jeep.h"
 #include <ctime>
@@ -5,6 +10,7 @@
 
 using namespace std;
 
+/** Construct a Jeep; off-road options extend washTime. */
 Jeep::Jeep(int arrivalTime) : Vehicle(arrivalTime)
 {
     setCarType("Jeep");
@@ -49,6 +55,7 @@ string Jeep::getLicensePlate() const { return licensePlate; }
 
 string Jeep::getTypeOfWash() const { return typeOfWash; }
 
+/** Print shared Vehicle fields plus Jeep-specific options. */
 void Jeep::display() const
 {
     Vehicle::display();

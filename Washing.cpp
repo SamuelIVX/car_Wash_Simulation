@@ -1,20 +1,12 @@
-// FILE: washing.cpp
-// CLASSES implemented: bool_source, averager
-// INVARIANT for the bool_source ADT:
-// 1. The member variable probability is the appoximate probability that
-// query() returns true.
-//
-// INVARIANT for the averager ADT:
-// 1. The member variable count indicates how many numbers the averager has
-// been given.
-// 2. The member variable sum is the sum of all the numbers that the
-// averager has been given.
-//
-// INVARIANT for the washer class:
-// 1. The member variable seconds_for_wash is the number of seconds required
-// for one wash.
-// 2. The member varible wash_time_left is 0 if the washer is not busy;
-// otherwise it is the number of seconds until the washer is free.
+/**
+ * @file Washing.cpp
+ * @brief Implementations of bool_source, averager, and washer for the car-wash simulation.
+ *
+ * Invariants:
+ * - bool_source::probability is the approximate P(query() == true).
+ * - averager::count / sum track how many samples and their total.
+ * - washer::seconds_for_wash is the configured cycle length; wash_time_left is 0 when idle.
+ */
 
 #include <cassert> // Provides assert
 #include <cstdlib> // Provides rand, RAND_MAX, size_t

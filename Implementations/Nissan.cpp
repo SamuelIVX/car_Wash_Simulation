@@ -1,3 +1,8 @@
+/**
+ * @file Nissan.cpp
+ * @brief Nissan wash-time, resource, and display overrides for the car-wash simulation.
+ */
+
 #include <iostream>
 #include "../Headers/Nissan.h"
 #include <ctime>
@@ -5,6 +10,7 @@
 
 using namespace std;
 
+/** Construct a Nissan; drivetrain/roof/paint options extend washTime. */
 Nissan::Nissan(int arrivalTime) : Vehicle(arrivalTime)
 {
     setCarType("Nissan");
@@ -54,6 +60,7 @@ string Nissan::getLicensePlate() const { return licensePlate; }
 
 string Nissan::getTypeOfWash() const { return typeOfWash; }
 
+/** Print shared Vehicle fields plus Nissan-specific options. */
 void Nissan::display() const
 {
     Vehicle::display();

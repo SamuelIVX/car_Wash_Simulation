@@ -1,3 +1,16 @@
+/**
+ * @file main.cpp
+ * @brief Entry point and discrete-event loop for the car-wash queue simulation.
+ *
+ * Reads arrival probability and total simulated seconds from stdin, then runs
+ * car_wash_simulate() over regular and VIP queues until time expires.
+ *
+ * Build (include CarInfoImp.cpp or link fails) — shell-glob the Implementations
+ * directory so every .cpp there is linked, then add Washing.cpp and CarInfoImp.cpp:
+ *   g++ -std=c++17 -Wall -Wextra -pedantic -o carwash main.cpp
+ *       Implementations/<all-brand-and-Vehicle>.cpp Washing.cpp CarInfoImp.cpp
+ */
+
 #include <stdlib.h>
 #include <iostream> // Provides cout
 #include <cstdlib>  // Provides EXIT_SUCCESS
@@ -22,9 +35,20 @@
 
 using namespace std;
 
-// Prototype for car_wash_simulate
+/**
+ * @brief Run one car-wash simulation until @p total_time simulated seconds elapse.
+ * @param arrival_prob Probability [0,1] that a car arrives each second.
+ * @param total_time Simulation horizon in seconds.
+ *
+ * Side effects: prints queue events and a statistical report to stdout;
+ * allocates Vehicle objects that are deleted before return.
+ */
 void car_wash_simulate(double arrival_prob, unsigned int total_time);
 
+/**
+ * @brief Prompt for arrival probability and duration, then run the simulation.
+ * @return EXIT_SUCCESS (0) on completion.
+ */
 int main()
 {
     srand(time(0));
@@ -43,7 +67,6 @@ int main()
     return 0;
 }
 
-// Function Definition for car_wash_simulate
 void car_wash_simulate(double arrival_prob, unsigned int total_time)
 {
     Que<Vehicle *> carWashQueue, VIPQueue, finishedCarsQueue;
@@ -184,5 +207,5 @@ void car_wash_simulate(double arrival_prob, unsigned int total_time)
     }
 }
 
-// g++ -o output main.cpp Implementations/*.cpp Washing.cpp -std=c++17
-// ./output
+// g++ -std=c++17 -Wall -Wextra -pedantic -o carwash main.cpp Implementations/*.cpp Washing.cpp CarInfoImp.cpp
+// ./carwash
