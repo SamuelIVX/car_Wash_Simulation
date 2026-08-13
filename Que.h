@@ -1,3 +1,11 @@
+/**
+ * @file Que.h
+ * @brief Header-only linked-node queue template used for regular, VIP, and finished cars.
+ *
+ * Provides enqueue/dequeue plus simulation helpers (printQueue, wait_time, statistical_report).
+ * Instantiated primarily as Que<Vehicle *>.
+ */
+
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -11,53 +19,102 @@
 
 using namespace std;
 
+/**
+ * @brief Singly linked list node holding one queue item.
+ * @tparam ItemType Payload type (typically Vehicle *).
+ */
 template <class ItemType>
 struct NodeType
 {
     ItemType info;
     NodeType<ItemType> *next;
 
-    NodeType() : next(nullptr) {} // Default constructor
+    /** @brief Construct an empty node with a null next pointer. */
+    NodeType() : next(nullptr) {}
+    /** @brief Construct a node holding a CarInfo payload (legacy overload). */
     NodeType(CarInfo c) : info(c), next(nullptr) {}
 };
 
+/**
+ * @brief Linked FIFO queue with car-wash simulation helpers.
+ * @tparam ItemType Element type stored in each node.
+ */
 template <class ItemType>
 class Que
 {
 public:
+    /** @brief Construct an empty queue. */
     Que();
 
+    /**
+     * @brief Deep-copy construct from @p otherQue.
+     * @param otherQue Queue to duplicate.
+     */
     Que(const Que<ItemType> &otherQue);
 
+    /** @brief Destroy the queue and free all nodes (not the pointed-to Vehicles). */
     ~Que();
 
+    /**
+     * @brief Assign by deep-copying @p otherQue into this queue.
+     * @param otherQue Source queue; no-op if assigning to self.
+     */
     void operator=(Que<ItemType> &otherQue);
 
+    /** @return True if the queue has no elements. */
     bool empty() const;
 
+    /**
+     * @brief Probe whether a new node can be allocated.
+     * @return True if allocation failed (queue considered full).
+     */
     bool full() const;
 
+    /**
+     * @brief Enqueue @p item at the rear.
+     * @param item Value to store (e.g. Vehicle *).
+     */
     void addQ(ItemType item);
 
+    /**
+     * @brief Dequeue the front element into @p item.
+     * @param[out] item Receives the former front payload.
+     * @pre !empty().
+     */
     void removeQ(ItemType &item);
 
+    /** @brief Remove all nodes without deleting pointed-to Vehicle objects. */
     void makeEmpty();
 
-    // These are the functions I created for this function
-
-    // Get the first car from the queue
+    /**
+     * @brief Reference to the front payload without removing it.
+     * @return Mutable reference to front info.
+     * @pre !empty().
+     */
     ItemType &getFront() const;
 
-    // Print out the entire queue
+    /** @brief Print brand labels for every vehicle currently in the queue. */
     void printQueue() const;
 
-    // Get the size of the queue
+    /** @return Number of nodes currently in the queue. */
     int count() const;
 
-    // Displays the information of each CarInfo object in a queue
+    /**
+     * @brief Print end-of-run stats and per-car details from this (finished) queue.
+     * @param average_waiting_time Mean wait among washed cars.
+     * @param cars_washed Count successfully washed.
+     * @param cars_not_washed Count still waiting when time expired.
+     */
     void statistical_report(double average_waiting_time, int cars_washed, int cars_not_washed);
 
-    // Calculates the wait time for nth car in the queue
+    /**
+     * @brief Estimate wait for a newly arrived car given current bay state.
+     * @param wash_time This car's wash duration in seconds.
+     * @param car_wash Wash bay whose remaining time factors into the estimate.
+     * @return Estimated wait in simulated seconds.
+     *
+     * Subtracts 1 when the bay is busy because main advances the bay after this call.
+     */
     int wait_time(unsigned int wash_time, washer &car_wash);
 
 private:
@@ -232,11 +289,6 @@ ItemType &Que<ItemType>::getFront() const
 template <class ItemType>
 void Que<ItemType>::printQueue() const
 {
-    // if (empty())
-    // {
-    //     cout << "The queue is empty.\n";
-    //     return;
-    // }
     NodeType<ItemType> *current = qFront;
     cout << "Current queue: ";
     while (current != nullptr)

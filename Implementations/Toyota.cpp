@@ -1,3 +1,8 @@
+/**
+ * @file Toyota.cpp
+ * @brief Toyota wash-time, resource, and display overrides for the car-wash simulation.
+ */
+
 #include <iostream>
 #include "../Headers/Toyota.h"
 #include <ctime>
@@ -5,6 +10,7 @@
 
 using namespace std;
 
+/** Construct a Toyota; option packages extend washTime. */
 Toyota::Toyota(int arrivalTime) : Vehicle(arrivalTime)
 {
     setCarType("Toyota");
@@ -49,6 +55,7 @@ string Toyota::getLicensePlate() const { return licensePlate; }
 
 string Toyota::getTypeOfWash() const { return typeOfWash; }
 
+/** Print shared Vehicle fields plus Toyota-specific options. */
 void Toyota::display() const
 {
     Vehicle::display();

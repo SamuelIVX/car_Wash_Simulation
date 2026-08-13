@@ -1,96 +1,69 @@
-// File washing.h
-//  CLASSES PROVIDED: bool_source, averager, washer.
-//
-//  CONSTRUCTOR for the bool_source class:
-//  bool_source(double p = 0.5)
-//  Precondition: 0 <= p <= 1.
-//  Postcondition: The bool_source has been initialized so that p is the
-//  approximate probability of returning true in any subsequent activation
-//  of query( ).
-//
-//  CONSTANT MEMBER FUNCTION for the bool_source class:
-//  bool query( ) const
-//  Postcondition: The return value is either true or false, with the
-//  probability of a true value being approximately p (from the constructor).
-//
-//  CONSTRUCTOR for the averager class:
-//  averager( )
-//  Postcondition: The averager has been initialized so that it
-//  is ready to accept a sequence of numbers to average.
-//
-//  MODIFICATION MEMBER FUNCTION for the averager class:
-//  void next_number(double value)
-//  Postcondition: The averager has accepted value as the next
-//  number in the sequence of numbers which it is averaging.
-//
-//  CONSTANT MEMBER FUNCTIONS for the averager class:
-//  size_t how_many_numbers( ) const
-//  Postcondition: The value returned is a count of how many
-//  times next_number has been activated.
-//  double average( ) const
-//  Precondition: how_many_numbers > 0.
-//  Postcondition: The value returned is the average of all the
-//  numbers which have been given to the averager.
-//
-//  CONSTRUCTOR for the washer class:
-//  washer(unsigned int s = 60)
-//  Precondition: The value of s is the number of seconds needed for
-//  the completion of one wash cycle.
-//  Postcondition: The washer has been initialized so that all
-//  other member functions may be used.
-//
-//  MODIFICATION MEMBER FUNCTIONS for the washer class:
-//  void one_second( )
-//  Postcondition: The washer has recorded (and simulated) the
-//  passage of one more second of time.
-//
-//  void start_washing( )
-//  Precondition: The washer is not busy.
-//  Postcondition: The washer has started simulating one wash
-//  cycle. Therefore, is_busy( ) will return true until
-//  the required number of simulated seconds have occured.
-//
-//  CONSTANT MEMBER FUNCTIONS for the washer class:
-//  bool is_busy( ) const
-//  Postcondition: Return value is true if the washer is busy
-//  (in a wash cycle); otherwise the return value is false.
-//
-//  VALUE SEMANTICS for the bool_source, averager, and washer classes:
-//  Assignments and the copy constructor may be used with the three classes.
+/**
+ * @file washing.h
+ * @brief Discrete-event car-wash helpers: arrival probability, running averages, and wash-bay state.
+ *
+ * Provides bool_source, averager, and washer used by the main simulation loop.
+ */
 
 #include <iostream>
 #include <string>
 #ifndef WASHING_H
 #define WASHING_H
 
+/**
+ * @brief Bernoulli trial source for random car arrivals.
+ */
 class bool_source
 {
 public:
-    // CONSTRUCTOR
+    /**
+     * @brief Construct a source that returns true with approximate probability @p p.
+     * @param p Probability in [0, 1] that query() returns true.
+     * @pre 0 <= p <= 1.
+     */
     bool_source(double p = 0.5);
 
-    // CONSTANT function
+    /**
+     * @brief Draw one random true/false outcome using @c probability.
+     * @return True with approximate probability @c probability; otherwise false.
+     */
     bool query() const;
 
 private:
     double probability; // Probability of query() returning true
 };
 
+/**
+ * @brief Online accumulator for a sequence of numeric samples.
+ */
 class averager
 {
 public:
-    // CONSTRUCTOR
+    /**
+     * @brief Construct an empty averager ready to accept samples.
+     */
     averager();
 
-    // MODIFICATION function
+    /**
+     * @brief Append @p value to the running sum/count.
+     * @param value Next sample in the sequence being averaged.
+     */
     void next_number(double value);
 
-    // CONSTANT functions
+    /**
+     * @brief How many samples have been recorded.
+     * @return Count of next_number activations.
+     */
     std::size_t how_many_numbers() const
     {
         return count;
     }
 
+    /**
+     * @brief Mean of all recorded samples.
+     * @return Average of values passed to next_number.
+     * @pre how_many_numbers() > 0.
+     */
     double average() const;
 
 private:
@@ -98,26 +71,51 @@ private:
     double sum;        // Sum of all the numbers given to the averager
 };
 
+/**
+ * @brief Single wash bay that tracks remaining seconds in the current cycle.
+ *
+ * Duration is not fixed at construction; call setWashingTime() before start_washing().
+ */
 class washer
 {
 public:
-    // CONSTRUCTOR
+    /**
+     * @brief Construct an idle washer with no wash in progress.
+     * Call setWashingTime() to configure cycle length before starting a wash.
+     */
     washer();
 
-    // Setter
+    /**
+     * @brief Set the length of the next wash cycle in simulated seconds.
+     * @param s Seconds required to complete one wash.
+     */
     void setWashingTime(unsigned int s);
 
-    // MODIFICATION functions
+    /**
+     * @brief Advance the simulation by one second; decrement remaining wash time if busy.
+     */
     void one_second();
 
+    /**
+     * @brief Begin a wash cycle using the duration from setWashingTime().
+     * @pre is_busy() is false.
+     * @post is_busy() is true until the configured seconds have elapsed via one_second().
+     */
     void start_washing();
 
-    // CONSTANT function
+    /**
+     * @brief Whether a wash cycle is currently in progress.
+     * @return True if wash_time_left > 0.
+     */
     bool is_busy() const
     {
         return (wash_time_left > 0);
     }
 
+    /**
+     * @brief Seconds remaining in the current wash cycle.
+     * @return Remaining wash time; 0 when idle.
+     */
     int get_wash_time_left() const;
 
 private:

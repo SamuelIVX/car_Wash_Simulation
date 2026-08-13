@@ -1,3 +1,8 @@
+/**
+ * @file Vehicle.cpp
+ * @brief Base Vehicle construction, random-brand factory, and shared property helpers.
+ */
+
 #include <iostream>
 #include <ctime>
 #include "../Headers/Tesla.h"
@@ -13,6 +18,7 @@
 
 using namespace std;
 
+/** Construct base vehicle; VIP cars get half washTime. */
 Vehicle::Vehicle(int arrivalTime)
 {
     this->arrivalTime = arrivalTime;
@@ -23,6 +29,7 @@ Vehicle::Vehicle(int arrivalTime)
 
 Vehicle::~Vehicle() {}
 
+/** Heap-allocate one of ten concrete brands uniformly at random. */
 Vehicle *Vehicle::createRandomCar(int arrivalTime)
 {
     int randomNumber = rand() % 10;
@@ -65,6 +72,7 @@ bool Vehicle::needsInteriorCleaning() { return interiorCleaningRequired; }
 
 string Vehicle::getLicensePlate() const { return licensePlate; }
 
+/** Print shared vehicle fields to stdout. */
 void Vehicle::display() const
 {
     cout << " | Arrival Time: " << arrivalTime
@@ -79,6 +87,7 @@ void Vehicle::display() const
          << " | Soap Usage: " << soap << "oz";
 }
 
+/** Generate an 11-character alphanumeric plate. */
 string Vehicle::licenseGenerator()
 {
     const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -90,6 +99,7 @@ string Vehicle::licenseGenerator()
     return result;
 }
 
+/** Roll wash package, VIP flag, plate, water/soap, and base wash duration. */
 void Vehicle::propertyGenerator()
 {
     int randomValue = rand() % 3;

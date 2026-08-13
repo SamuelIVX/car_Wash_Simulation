@@ -1,3 +1,8 @@
+/**
+ * @file Volkswagon.cpp
+ * @brief Volkswagon wash-time, resource, and display overrides for the car-wash simulation.
+ */
+
 #include <iostream>
 #include "../Headers/Volkswagon.h"
 #include <ctime>
@@ -5,6 +10,7 @@
 
 using namespace std;
 
+/** Construct a Volkswagon; wheel/paint/interior choices extend washTime. */
 Volkswagon::Volkswagon(int arrivalTime) : Vehicle(arrivalTime)
 {
 
@@ -71,6 +77,7 @@ string Volkswagon::getLicensePlate() const { return licensePlate; }
 
 string Volkswagon::getTypeOfWash() const { return typeOfWash; }
 
+/** Print shared Vehicle fields plus Volkswagon-specific options. */
 void Volkswagon::display() const
 {
     Vehicle::display();

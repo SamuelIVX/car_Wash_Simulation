@@ -1,3 +1,8 @@
+/**
+ * @file Chevrolet.cpp
+ * @brief Chevrolet wash-time, resource, and display overrides for the car-wash simulation.
+ */
+
 #include <iostream>
 #include "../Headers/Chevrolet.h"
 #include <ctime>
@@ -5,6 +10,7 @@
 
 using namespace std;
 
+/** Construct a Chevrolet; washTime depends on type and option packages. */
 Chevrolet::Chevrolet(int arrivalTime) : Vehicle(arrivalTime)
 {
     int randomValue = rand() % 3;
@@ -57,6 +63,7 @@ string Chevrolet::getLicensePlate() const { return licensePlate; }
 
 string Chevrolet::getTypeOfWash() const { return typeOfWash; }
 
+/** Print shared Vehicle fields plus Chevrolet-specific options. */
 void Chevrolet::display() const
 {
     Vehicle::display();

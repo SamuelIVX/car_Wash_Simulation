@@ -1,3 +1,8 @@
+/**
+ * @file Ford.cpp
+ * @brief Ford wash-time, resource, and display overrides for the car-wash simulation.
+ */
+
 #include <iostream>
 #include "../Headers/Ford.h"
 #include <ctime>
@@ -5,6 +10,7 @@
 
 using namespace std;
 
+/** Construct a Ford; washTime depends on type, drivetrain, and drive mode. */
 Ford::Ford(int arrivalTime) : Vehicle(arrivalTime)
 {
 
@@ -63,6 +69,7 @@ string Ford::getLicensePlate() const { return licensePlate; }
 
 string Ford::getTypeOfWash() const { return typeOfWash; }
 
+/** Print shared Vehicle fields plus Ford-specific options. */
 void Ford::display() const
 {
     Vehicle::display();

@@ -1,3 +1,8 @@
+/**
+ * @file BMW.cpp
+ * @brief BMW wash-time, resource, and display overrides for the car-wash simulation.
+ */
+
 #include <iostream>
 #include "../Headers/BMW.h"
 #include <ctime>
@@ -5,6 +10,7 @@
 
 using namespace std;
 
+/** Construct a BMW; washTime depends on model, body style, and options. */
 BMW::BMW(int arrivalTime) : Vehicle(arrivalTime)
 {
     int randomValue = rand() % 3;
@@ -61,6 +67,7 @@ string BMW::getLicensePlate() const { return licensePlate; }
 
 string BMW::getTypeOfWash() const { return typeOfWash; }
 
+/** Print shared Vehicle fields plus BMW-specific options. */
 void BMW::display() const
 {
     Vehicle::display();
