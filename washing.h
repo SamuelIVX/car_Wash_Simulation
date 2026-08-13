@@ -20,12 +20,18 @@ public:
      * @brief Construct a source that returns true with approximate probability @p p.
      * @param p Probability in [0, 1] that query() returns true.
      * @pre 0 <= p <= 1.
+     * @code
+     * bool_source arrivals(0.3);  // ~30% chance per query()
+     * @endcode
      */
     bool_source(double p = 0.5);
 
     /**
      * @brief Draw one random true/false outcome using @c probability.
      * @return True with approximate probability @c probability; otherwise false.
+     * @code
+     * bool arrived = arrivals.query();
+     * @endcode
      */
     bool query() const;
 
@@ -47,6 +53,9 @@ public:
     /**
      * @brief Append @p value to the running sum/count.
      * @param value Next sample in the sequence being averaged.
+     * @code
+     * wait_times.next_number(42);
+     * @endcode
      */
     void next_number(double value);
 
@@ -63,6 +72,9 @@ public:
      * @brief Mean of all recorded samples.
      * @return Average of values passed to next_number.
      * @pre how_many_numbers() > 0.
+     * @code
+     * double mean = wait_times.average();
+     * @endcode
      */
     double average() const;
 
@@ -89,6 +101,9 @@ public:
      * @brief Set the length of the next wash cycle in simulated seconds.
      * @param s Positive number of seconds required to complete one wash.
      * @pre s > 0.
+     * @code
+     * bay.setWashingTime(15);
+     * @endcode
      */
     void setWashingTime(unsigned int s);
 
@@ -101,6 +116,10 @@ public:
      * @brief Begin a wash cycle using the duration from setWashingTime().
      * @pre is_busy() is false and a positive wash duration is configured.
      * @post is_busy() is true until the configured seconds have elapsed via one_second().
+     * @code
+     * bay.setWashingTime(10);
+     * bay.start_washing();  // is_busy() == true until 10 one_second() calls
+     * @endcode
      */
     void start_washing();
 

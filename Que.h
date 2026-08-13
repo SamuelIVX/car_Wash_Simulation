@@ -31,7 +31,10 @@ struct NodeType
 
     /** @brief Construct an empty node with a null next pointer. */
     NodeType() : next(nullptr) {}
-    /** @brief Construct a node holding a CarInfo payload (legacy overload). */
+    /**
+     * @brief Construct a node holding a CarInfo payload (legacy overload).
+     * @param c CarInfo copied into @c info; requires ItemType compatible with CarInfo.
+     */
     NodeType(CarInfo c) : info(c), next(nullptr) {}
 };
 
@@ -63,7 +66,10 @@ public:
      */
     void operator=(Que<ItemType> &otherQue);
 
-    /** @return True if the queue has no elements. */
+    /**
+     * @brief Whether the queue has no elements.
+     * @return True if empty.
+     */
     bool empty() const;
 
     /**
@@ -75,6 +81,10 @@ public:
     /**
      * @brief Enqueue @p item at the rear.
      * @param item Value to store (e.g. Vehicle *).
+     * @code
+     * Que<Vehicle *> q;
+     * q.addQ(Vehicle::createRandomCar(0));
+     * @endcode
      */
     void addQ(ItemType item);
 
@@ -82,6 +92,10 @@ public:
      * @brief Dequeue the front element into @p item.
      * @param[out] item Receives the former front payload.
      * @pre !empty().
+     * @code
+     * Vehicle *front = nullptr;
+     * q.removeQ(front);
+     * @endcode
      */
     void removeQ(ItemType &item);
 
@@ -98,7 +112,10 @@ public:
     /** @brief Print brand labels for every vehicle currently in the queue. */
     void printQueue() const;
 
-    /** @return Number of nodes currently in the queue. */
+    /**
+     * @brief How many elements are in the queue.
+     * @return Number of nodes currently in the queue.
+     */
     int count() const;
 
     /**
@@ -106,6 +123,9 @@ public:
      * @param average_waiting_time Mean wait among washed cars.
      * @param cars_washed Count successfully washed.
      * @param cars_not_washed Count still waiting when time expired.
+     * @code
+     * finished.statistical_report(12.5, 8, 2);
+     * @endcode
      */
     void statistical_report(double average_waiting_time, int cars_washed, int cars_not_washed);
 
@@ -116,6 +136,9 @@ public:
      * @return Estimated wait in simulated seconds.
      *
      * Subtracts 1 when the bay is busy because main advances the bay after this call.
+     * @code
+     * int wait = queue.wait_time(car->getWashTime(), bay);
+     * @endcode
      */
     int wait_time(unsigned int wash_time, washer &car_wash);
 
@@ -284,7 +307,7 @@ void Que<ItemType>::makeEmpty()
 template <class ItemType>
 ItemType &Que<ItemType>::getFront() const
 {
-    return qFront->info; // Returns a CarInfo object from the queue
+    return qFront->info; // Front payload (e.g. Vehicle *); does not dequeue
 }
 
 // Print the queue

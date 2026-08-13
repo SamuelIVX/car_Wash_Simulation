@@ -38,9 +38,13 @@ using namespace std;
  * @brief Run one car-wash simulation until @p total_time simulated seconds elapse.
  * @param arrival_prob Probability [0,1] that a car arrives each second.
  * @param total_time Simulation horizon in seconds.
+ * @pre 0 <= arrival_prob <= 1.
  *
  * Side effects: prints queue events and a statistical report to stdout;
  * allocates Vehicle objects that are deleted before return.
+ * @code
+ * car_wash_simulate(0.25, 120);  // ~25% arrivals/sec for 2 simulated minutes
+ * @endcode
  */
 void car_wash_simulate(double arrival_prob, unsigned int total_time);
 
