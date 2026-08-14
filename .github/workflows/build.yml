@@ -27,4 +27,4 @@ jobs:
           persist-credentials: false
 
       - name: Compile
-        run: g++ -std=c++17 -Wall -Wextra -pedantic -o carwash main.cpp Implementations/*.cpp Washing.cpp CarInfoImp.cpp
+        run: g++ -std=c++17 -Wall -Wextra -pedantic -o carwash main.cpp Implementations/*.cpp Washing.cpp

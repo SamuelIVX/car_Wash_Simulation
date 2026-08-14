@@ -12,7 +12,6 @@
 #include <ctime>
 #include <unistd.h>
 #include <iomanip>
-#include "CarInfo.h"
 #include "washing.h"
 #ifndef Queue
 #define Queue
@@ -31,11 +30,6 @@ struct NodeType
 
     /** @brief Construct an empty node with a null next pointer. */
     NodeType() : next(nullptr) {}
-    /**
-     * @brief Construct a node holding a CarInfo payload (legacy overload).
-     * @param c CarInfo copied into @c info; requires ItemType compatible with CarInfo.
-     */
-    NodeType(CarInfo c) : info(c), next(nullptr) {}
 };
 
 /**
@@ -343,17 +337,13 @@ void Que<ItemType>::statistical_report(double average_waiting_time, int cars_was
 {
     NodeType<ItemType> *currentCar = qFront;
 
-    // This is just for show to simulate wait time
-    // sleep(2);
     cout << "\nEnd of Car Wash Simulation..." << endl;
-    // sleep(2);
     cout << "Processing Final Report...\n";
-    // sleep(2);
     cout << endl
          << setfill(' ') << setw(80) << "Statistical Report\n";
     // sleep(2);
 
-    // Print out all of the private data members of CarInfo in the queue
+    // Print out all of the private data members of Vehicle in the queue
     while (currentCar != nullptr)
     {
         cout << "\nCar License Plate: " << currentCar->info->getLicensePlate() << " | CarType: " << currentCar->info->getCarType() << " | VIP: " << (currentCar->info->getIsVIP() == 1 ? "True" : "False") << " | ArrivalTime: " << currentCar->info->getArrivalTime() << " | Type Of Wash: " << currentCar->info->getTypeOfWash() << " | Amount of Water Used: " << currentCar->info->getWaterUsage() << " gallons | Amount of Soap Used: " << currentCar->info->getSoapUsage() << " ounces |" << endl;

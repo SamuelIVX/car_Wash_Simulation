@@ -50,7 +50,7 @@ jobs:
 
       - name: Build C++
         if: matrix.language == 'c-cpp'
-        run: g++ -std=c++17 -Wall -Wextra -pedantic -o carwash main.cpp Implementations/*.cpp Washing.cpp CarInfoImp.cpp
+        run: g++ -std=c++17 -Wall -Wextra -pedantic -o carwash main.cpp Implementations/*.cpp Washing.cpp
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@24c7eb380a2dc368f2d129e4c65e51d172983a1e # v4
