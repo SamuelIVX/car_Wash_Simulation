@@ -5,9 +5,9 @@
  * Reads arrival probability and total simulated seconds from stdin, then runs
  * car_wash_simulate() over regular and VIP queues until time expires.
  *
- * Build (include CarInfoImp.cpp or link fails): see the trailing // compile line
- * at the bottom of this file for the full g++ command with the Implementations
- * shell glob (kept there to avoid nesting "* /" inside this block comment).
+ * Build: see the trailing // compile line at the bottom of this file for the
+ * full g++ command with the Implementations shell glob (kept there to avoid
+ * nesting "* /" inside this block comment).
  */
 
 #include <stdlib.h>
@@ -27,7 +27,6 @@
 #include "Headers/BMW.h"
 #include "Que.h"     //Provides queue
 #include "washing.h" // Provides averager, bool_source, washer
-#include "CarInfo.h" //The class I created
 #include <string>
 #include <ctime>
 #include <vector>
@@ -79,11 +78,11 @@ void car_wash_simulate(double arrival_prob, unsigned int total_time)
 
     Vehicle *currentCar, *currentVIPCar;
 
-    // Initializing and declaring 6 counter variables
-    int carsWashed = 0, vipCarsWashed = 0, carsNotWashed = 0, vipCarsNotWashed = 0, currentTime = 0, waitTime = 0, vipWaitTime = 0, average_waiting_time = 0, vip_average_waiting_time = 0, totalWaitingTime = 0, vipTotalWaitingTime = 0;
+    // Initializing and declaring counter variables
+    int carsWashed = 0, carsNotWashed = 0, currentTime = 0, waitTime = 0, average_waiting_time = 0, totalWaitingTime = 0;
 
     // Keep looping while the currentTime is less than the total simulation runtime
-    while (currentTime < total_time)
+    while (currentTime < static_cast<int>(total_time))
     {
         // Check if a new car arrives, even if the washer is busy
         if (get_prob.query())
@@ -99,9 +98,7 @@ void car_wash_simulate(double arrival_prob, unsigned int total_time)
                 cout << car->getCarType() << " is a VIP member!. Moving vehicle to the VIP queue!\n";
                 VIPQueue.addQ(car);
                 vip_car_wash.setWashingTime(car->getWashTime());
-                vipWaitTime = VIPQueue.wait_time(car->getWashTime(), vip_car_wash); // calculate the wait time for nth car in the queue
-                vipTotalWaitingTime += vipWaitTime;
-                cout << "\nWait Time for the VIP queue: " << vipWaitTime << " sec(s)" << endl;
+                cout << "\nWait Time for the VIP queue: " << VIPQueue.wait_time(car->getWashTime(), vip_car_wash) << " sec(s)" << endl;
             }
             else
             {
@@ -134,7 +131,6 @@ void car_wash_simulate(double arrival_prob, unsigned int total_time)
                 Vehicle *finishedVIPCar;
                 VIPQueue.removeQ(finishedVIPCar);       // Removing the car from the queue and grabbing it
                 finishedCarsQueue.addQ(finishedVIPCar); // Add the recently removed car into another queue for later on [statistical purpose]
-                vipCarsWashed++;                        // Iterate the amount of cars successfully washed
                 cout << endl
                      << finishedVIPCar->getCarType() << " has been washed and dequeued.\n";
                 VIPQueue.printQueue(); // Print out the queue each time a car has been washed!
@@ -181,7 +177,6 @@ void car_wash_simulate(double arrival_prob, unsigned int total_time)
 
         // Iterate the simulation by 1
         currentTime++;
-        // sleep(1);
     }
 
     // To avoid dividing by zero
@@ -190,14 +185,8 @@ void car_wash_simulate(double arrival_prob, unsigned int total_time)
     else
         average_waiting_time = 0; // edge case of no washed cars
 
-    if (vipCarsWashed > 0)
-        vip_average_waiting_time = vipTotalWaitingTime / vipCarsWashed; // Getting the average waiting time
-    else
-        vip_average_waiting_time = 0; // edge case of no washed cars
-
     // Get the remaining number of cars in the car queue to get the total number of cars that were not washed
     carsNotWashed = carWashQueue.count();
-    vipCarsNotWashed = VIPQueue.count();
 
     finishedCarsQueue.statistical_report(average_waiting_time, carsWashed, carsNotWashed); // Display a statiscal report about what happened throughout the simulation
 
@@ -210,5 +199,5 @@ void car_wash_simulate(double arrival_prob, unsigned int total_time)
     }
 }
 
-// g++ -std=c++17 -Wall -Wextra -pedantic -o carwash main.cpp Implementations/*.cpp Washing.cpp CarInfoImp.cpp
+// g++ -std=c++17 -Wall -Wextra -pedantic -o carwash main.cpp Implementations/*.cpp Washing.cpp
 // ./carwash

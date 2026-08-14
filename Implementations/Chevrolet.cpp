@@ -18,8 +18,8 @@ Chevrolet::Chevrolet(int arrivalTime) : Vehicle(arrivalTime)
 
     setCarType("Chevrolet");
     vehicleType = vehicleTypes[randomValue];
-    bool hasActiveAero = rand() % 2;
-    bool hasParkingSensors = rand() % 2;
+    hasActiveAero = rand() % 2;
+    hasParkingSensors = rand() % 2;
 
     unordered_map<string, int> vehicleTypeTimes{
         {"Truck", 5},
