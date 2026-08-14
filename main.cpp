@@ -71,7 +71,7 @@ int main()
 
 void car_wash_simulate(double arrival_prob, unsigned int total_time)
 {
-    Que<Vehicle *> carWashQueue, VIPQueue, finishedCarsQueue;
+    Que<Vehicle *> carWashQueue, VIPQueue, regularFinishedCarsQueue;
     vector<Vehicle *> carsToBeDeleted;
     bool_source get_prob(arrival_prob);
     washer car_wash, vip_car_wash;
@@ -130,7 +130,6 @@ void car_wash_simulate(double arrival_prob, unsigned int total_time)
             {
                 Vehicle *finishedVIPCar;
                 VIPQueue.removeQ(finishedVIPCar);       // Removing the car from the queue and grabbing it
-                finishedCarsQueue.addQ(finishedVIPCar); // Add the recently removed car into another queue for later on [statistical purpose]
                 cout << endl
                      << finishedVIPCar->getCarType() << " has been washed and dequeued.\n";
                 VIPQueue.printQueue(); // Print out the queue each time a car has been washed!
@@ -146,7 +145,7 @@ void car_wash_simulate(double arrival_prob, unsigned int total_time)
             {
                 Vehicle *finishedCar;
                 carWashQueue.removeQ(finishedCar);   // Removing the car from the queue and grabbing it
-                finishedCarsQueue.addQ(finishedCar); // Add the recently removed car into another queue for later on [statistical purpose]
+                regularFinishedCarsQueue.addQ(finishedCar); // Add the recently removed car into another queue for later on [statistical purpose]
                 carsWashed++;                        // Iterate the amount of cars successfully washed
                 cout << endl
                      << finishedCar->getCarType() << " has been washed and dequeued.\n";
@@ -188,10 +187,10 @@ void car_wash_simulate(double arrival_prob, unsigned int total_time)
     // Get the remaining number of cars in the car queue to get the total number of cars that were not washed
     carsNotWashed = carWashQueue.count();
 
-    finishedCarsQueue.statistical_report(average_waiting_time, carsWashed, carsNotWashed); // Display a statiscal report about what happened throughout the simulation
+    regularFinishedCarsQueue.statistical_report(average_waiting_time, carsWashed, carsNotWashed); // Display a statiscal report about what happened throughout the simulation
 
     carWashQueue.makeEmpty();
-    finishedCarsQueue.makeEmpty();
+    regularFinishedCarsQueue.makeEmpty();
     VIPQueue.makeEmpty();
     for (auto *car : carsToBeDeleted)
     {
